@@ -1,0 +1,432 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+
+    <ui:param name="viewname" value="DASHBOARD" />
+    
+    <ui:define name="head">
+        <h:outputScript name="js/chart.js" library="demo" />
+        <script type="text/javascript">
+            $(function() {
+                var dataSet = [
+                    [2, 7, 20, 9, 16, 9, 5],
+                    [2, 4, 9, 20, 16, 12, 20],
+                    [2, 17, 7, 15, 4, 20, 8],
+                    [2, 2, 20, 4, 17, 16, 20]
+                ];
+
+                $('#order-tabs-container > .order-tab').on('click', function() {
+                    var el = $(this);
+                    el.addClass('order-tab-active').siblings('.order-tab-active').removeClass('order-tab-active');
+                    ordersChart.data.datasets[0].data = dataSet[parseInt(el.data('index'))];
+                    ordersChart.data.datasets[0].label = el.data('label');
+                    ordersChart.data.datasets[0].borderColor = el.data('stroke');
+                    ordersChart.data.datasets[0].backgroundColor = el.data('fill');
+                    ordersChart.update();
+                });
+
+                var ordersChart = new Chart(document.getElementById("order-chart").getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        datasets: [{
+                            label: 'New',
+                            data: [2, 7, 20, 9, 16, 9, 5],
+                            backgroundColor: [
+                                'rgba(100, 181, 246, 0.2)',
+                            ],
+                            borderColor: [
+                                '#64B5F6',
+                            ],
+                            borderWidth: 3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        legend: {
+                            display: true,
+                        },
+                        responsive: true,
+                        hover: {
+                            mode: 'index'
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 20
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                var revenueChart = new Chart(document.getElementById("revenue-chart").getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Direct', 'Promoted', 'Affiliate'],
+                        datasets: [{
+                            data: [40, 35, 25],
+                            backgroundColor: ["#64B5F6", "#7986CB", "#4DB6AC"]
+                        }]
+                    }
+                });
+            });
+        </script>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="layout-dashboard">
+                <div class="grid">
+                    <div class="col-12 md:col-6 xl:col-3">
+                        <div class="card no-gutter widget-overview-box widget-overview-box-1">
+                            <span class="overview-icon">
+                                <i class="pi pi-shopping-cart"></i>
+                            </span>
+                            <span class="overview-title">Orders</span>
+                            <div class="grid overview-detail">
+                                <div class="col-6">
+                                    <div class="overview-number">640</div>
+                                    <div class="overview-subtext">Pending</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="overview-number">1420</div>
+                                    <div class="overview-subtext">Completed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 xl:col-3">
+                        <div class="card no-gutter widget-overview-box widget-overview-box-2">
+                            <span class="overview-icon">
+                                <i class="pi pi-dollar"></i>
+                            </span>
+                            <span class="overview-title">Revenue</span>
+                            <div class="grid overview-detail">
+                                <div class="col-6">
+                                    <div class="overview-number">$2,100</div>
+                                    <div class="overview-subtext">Expenses</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="overview-number">$9,640</div>
+                                    <div class="overview-subtext">Income</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 xl:col-3">
+                        <div class="card no-gutter widget-overview-box widget-overview-box-3">
+                            <span class="overview-icon">
+                                <i class="pi pi-users"></i>
+                            </span>
+                            <span class="overview-title">Customers</span>
+                            <div class="grid overview-detail">
+                                <div class="col-6">
+                                    <div class="overview-number">8272</div>
+                                    <div class="overview-subtext">Active</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="overview-number">25402</div>
+                                    <div class="overview-subtext">Registered</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 md:col-6 xl:col-3">
+                        <div class="card no-gutter widget-overview-box widget-overview-box-4">
+                            <span class="overview-icon">
+                                <i class="pi pi-comment"></i>
+                            </span>
+                            <span class="overview-title">Comments</span>
+                            <div class="grid overview-detail">
+                                <div class="col-6">
+                                    <div class="overview-number">12</div>
+                                    <div class="overview-subtext">New</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="overview-number">85</div>
+                                    <div class="overview-subtext">Responded</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 xl:col-6">
+                        <div class="card no-gutter">
+                            <div class="card-header">
+                                <h4>Orders</h4>
+                                <p:commandButton id="orders-button" type="button" icon="pi pi-search" styleClass="ui-button-secondary ui-button-flat" />
+                                <p:menu trigger="orders-button" overlay="true" my="right top" at="right bottom">
+                                    <p:submenu label="Shipments">
+                                        <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                        <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                        <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                                    </p:submenu>
+                                </p:menu>
+                            </div>
+                           
+                            <div class="grid">
+                                <div class="col-12">
+                                    <div id="order-tabs-container" class="grid order-tabs">
+                                        <div class="order-tab order-tab-new col-6 md:col-3" data-label="New Orders" data-index="0" data-stroke="#BBDEFB" data-fill="rgba(100, 181, 246, 0.2)">
+                                            <i class="pi pi-plus-circle"></i>
+                                            <span class="order-label">New</span>
+                                            <i class="stat-detail-icon icon-arrow-right-circle"></i>
+                                            <p:graphicImage name="images/dashboard/graph-new.svg" library="demo" />
+                                        </div>
+                                        <div class="order-tab order-tab-completed col-6 md:col-3" data-label="Completed Orders" data-index="1" data-stroke="#C5CAE9" data-fill="rgba(121, 134, 203, 0.2)">
+                                            <i class="pi pi-check-circle"></i>
+                                            <span class="order-label">Completed</span>
+                                            <i class="stat-detail-icon icon-arrow-right-circle"></i>
+                                            <p:graphicImage name="images/dashboard/graph-completed.svg" library="demo" />
+                                        </div>
+                                        <div class="order-tab order-tab-refunded col-6 md:col-3" data-label="Refunded Orders" data-index="2" data-stroke="#B2DFDB" data-fill="rgba(224, 242, 241, 0.5)">
+                                            <i class="pi pi-refresh"></i>
+                                            <span class="order-label">Refunded</span>
+                                            <i class="stat-detail-icon icon-arrow-right-circle"></i>
+                                            <p:graphicImage name="images/dashboard/graph-refunded.svg" library="demo" />
+                                        </div>
+                                        <div class="order-tab order-tab-cancelled col-6 md:col-3" data-label="Cancelled Orders" data-index="3" data-stroke="#B2EBF2" data-fill="rgba(224, 247, 250, 0.5)">
+                                            <i class="pi pi-times-circle"></i>
+                                            <span class="order-label">Cancelled</span>
+                                            <i class="stat-detail-icon icon-arrow-right-circle"></i>
+                                            <p:graphicImage name="images/dashboard/graph-cancelled.svg" library="demo" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="overview-chart">
+                                        <canvas id="order-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 xl:col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recent Sales</h4>
+                                <p:selectOneMenu value="#{dashboardView.productWeek}" styleClass="dashbard-demo-dropdown" style="min-width: 8rem">
+                                    <f:selectItem itemLabel="This Week" itemValue="#{0}"></f:selectItem>
+                                    <f:selectItem itemLabel="Last Week" itemValue="#{1}"></f:selectItem>
+                                    <p:ajax listener="#{dashboardView.loadProducts}" update="productsTable" />
+                                </p:selectOneMenu>
+                            </div>
+
+                            <p>Your sales activity over time.</p>
+
+                            <p:dataTable id="productsTable" var="product" value="#{dashboardView.products}" reflow="true" paginatorPosition="bottom"
+                                rowKey="#{product.id}" paginator="true" rows="5" >
+                                <p:column headerText="Id" sortBy="#{product.id}">
+                                    <h:outputText value="#{product.id}" />
+                                </p:column>
+
+                                <p:column headerText="Category" sortBy="#{product.category}">
+                                    <h:outputText value="#{product.category}" />
+                                </p:column>
+
+                                <p:column headerText="Price" sortBy="#{product.price}">
+                                    <h:outputText value="#{product.price}">
+                                        <f:convertNumber currencySymbol="$" type="currency" />
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Status" sortBy="#{product.inventoryStatus}">
+                                    <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus}</span>
+                                </p:column>
+
+                                <p:column style="width: 3.5rem">
+                                    <p:commandButton icon="pi pi-search" />
+                                </p:column>
+                            </p:dataTable>
+                        </div>
+                    </div>
+
+                    <div class="col-12 lg:col-4">
+                        <div class="card widget-tasks">
+                            <h4>Tasks</h4>
+                            <p>Overview of your pending tasks.</p>
+                            <div>
+                                <div class="task task-1">
+                                    <div class="task-name"><span>12 Orders</span> to fulfill</div>
+                                    <div class="task-progress">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="task task-2">
+                                    <div class="task-name"><span>40+ Payments</span> to withdraw</div>
+                                    <div class="task-progress">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="task task-3">
+                                    <div class="task-name"><span>4 Reports</span> to revise</div>
+                                    <div class="task-progress">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="task task-4">
+                                    <div class="task-name"><span>6 Questions</span> to respond</div>
+                                    <div class="task-progress">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div class="task task-5">
+                                    <div class="task-name"><span>2 Chargebacks</span> to review</div>
+                                    <div class="task-progress">
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h4>Best Sellers</h4>
+                            <p>Most popular products from your collection.</p>
+                            
+                            <ul class="widget-image-list">
+                                <li>
+                                   <span>Product</span>
+                                   <span>Sales</span> 
+                                </li>
+                                <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/bamboo-watch.jpg" library="demo" />
+                                        <span>Bamboo Watch</span>
+                                    </span>
+                                    <span class="listitem-value">82</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/blue-band.jpg" library="demo" />
+                                        <span>Blue Band</span>
+                                    </span>
+                                    <span class="listitem-value">75</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/game-controller.jpg" library="demo" />
+                                        <span>Game Controller</span>
+                                    </span>
+                                    <span class="listitem-value">64</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/lime-band.jpg" library="demo" />
+                                        <span>Lime Band</span>
+                                    </span>
+                                    <span class="listitem-value">62</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/gold-phone-case.jpg" library="demo" />
+                                        <span>Phone Case</span>
+                                    </span>
+                                    <span class="listitem-value">55</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/green-t-shirt.jpg" library="demo" />
+                                        <span>Green T-Shirt</span>
+                                    </span>
+                                    <span class="listitem-value">48</span>
+                                 </li>
+                                 <li>
+                                    <span>
+                                        <p:graphicImage name="images/product/purple-t-shirt.jpg" library="demo" />
+                                        <span>Purple T-Shirt</span>
+                                    </span>
+                                    <span class="listitem-value">32</span>
+                                 </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 lg:col-8">
+                        <div class="card revenue">
+                            <h4>Revenue Stream</h4>
+                            <p>Comparison of your revenue sources.</p>
+                            <div class="revenue-chart-container">
+                                <canvas id="revenue-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h4>Team Members</h4>
+                            <ul class="widget-person-list">
+                                <li>
+                                    <div class="person-item">
+                                        <p:graphicImage name="images/avatar/amyelsner.png" library="demo" />
+                                        <div class="person-info">
+                                            <div class="person-name">Amy Elsner</div>
+                                            <div class="person-subtext">Accounting</div>
+                                        </div>
+                                    </div>
+                                    <div class="person-actions">
+                                        <p:commandButton type="button" class="rounded-button ui-button-success" icon="pi pi-envelope" />
+                                        <p:commandButton type="button" class="rounded-button ui-button-warning" icon="pi pi-cog" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="person-item">
+                                        <p:graphicImage name="images/avatar/annafali.png" library="demo" />
+                                        <div class="person-info">
+                                            <div class="person-name">Anna Fali</div>
+                                            <div class="person-subtext">Procurement</div>
+                                        </div>
+                                    </div>
+                                    <div class="person-actions">
+                                        <p:commandButton type="button" class="rounded-button ui-button-success" icon="pi pi-envelope" />
+                                        <p:commandButton type="button" class="rounded-button ui-button-warning" icon="pi pi-cog" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="person-item">
+                                        <p:graphicImage name="images/avatar/bernardodominic.png" library="demo" />
+                                        <div class="person-info">
+                                            <div class="person-name">Bernardo Dominic</div>
+                                            <div class="person-subtext">Finance</div>
+                                        </div>
+                                    </div>
+                                    <div class="person-actions">
+                                        <p:commandButton type="button" class="rounded-button ui-button-success" icon="pi pi-envelope" />
+                                        <p:commandButton type="button" class="rounded-button ui-button-warning" icon="pi pi-cog" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="person-item">
+                                        <p:graphicImage name="images/avatar/ivanmagalhaes.png" library="demo" />
+                                        <div class="person-info">
+                                            <div class="person-name">Ivan Magalhaes</div>
+                                            <div class="person-subtext">Sales</div>
+                                        </div>
+                                    </div>
+                                    <div class="person-actions">
+                                        <p:commandButton type="button" class="rounded-button ui-button-success" icon="pi pi-envelope" />
+                                        <p:commandButton type="button" class="rounded-button ui-button-warning" icon="pi pi-cog" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="person-item">
+                                        <p:graphicImage name="images/avatar/xuxuefeng.png" library="demo" />
+                                        <div class="person-info">
+                                            <div class="person-name">Xuxue Feng</div>
+                                            <div class="person-subtext">Management</div>
+                                        </div>
+                                    </div>
+                                    <div class="person-actions">
+                                        <p:commandButton type="button" class="rounded-button ui-button-success" icon="pi pi-envelope" />
+                                        <p:commandButton type="button" class="rounded-button ui-button-warning" icon="pi pi-cog" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
