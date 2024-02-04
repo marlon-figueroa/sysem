@@ -2,10 +2,12 @@
 .project
 siemprendo/.settings
 siemprendo/target
+siemprendo/bin
 siemprendo/.classpath
 siemprendo/.project
 
 sysem-sb3/.settings
 sysem-sb3/target
+sysem-sb3/bin
 sysem-sb3/.classpath
 sysem-sb3/.project
