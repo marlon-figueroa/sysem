@@ -26,9 +26,12 @@ import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 
+@SuppressWarnings("rawtypes")
 @Named
 @ViewScoped
 public class TreeDemoView implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
     private TreeNode root1;
     private TreeNode root2;
@@ -46,7 +49,7 @@ public class TreeDemoView implements Serializable {
         root3 = service.createDocuments();
     }
 
-    public TreeNode getRoot1() {
+	public TreeNode getRoot1() {
         return root1;
     }
 

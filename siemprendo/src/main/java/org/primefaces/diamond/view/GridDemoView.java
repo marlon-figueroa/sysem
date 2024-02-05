@@ -26,6 +26,8 @@ import java.util.List;
 @Named
 @ViewScoped
 public class GridDemoView implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
     private List<Integer> columns;
 

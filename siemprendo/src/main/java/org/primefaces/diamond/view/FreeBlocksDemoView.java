@@ -27,7 +27,9 @@ import java.io.Serializable;
 @ViewScoped
 public class FreeBlocksDemoView implements Serializable {
 
-    private final String block1 = "<div class=\"grid grid-nogutter surface-section text-800\">\n" +
+    private static final long serialVersionUID = 1L;
+
+	private final String block1 = "<div class=\"grid grid-nogutter surface-section text-800\">\n" +
             "    <div class=\"col-12 md:col-6 p-6 text-center md:text-left flex align-items-center \">\n" +
             "        <section>\n" +
             "            <span class=\"block text-6xl font-bold mb-1\">Create the screens</span>\n" +

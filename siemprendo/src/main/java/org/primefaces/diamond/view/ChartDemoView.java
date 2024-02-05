@@ -68,7 +68,9 @@ import org.primefaces.model.charts.optionconfig.animation.Animation;
 @RequestScoped
 public class ChartDemoView implements Serializable {
 
-    private PieChartModel pieModel;
+    private static final long serialVersionUID = 1L;
+
+	private PieChartModel pieModel;
 
     private PolarAreaChartModel polarAreaModel;
 
@@ -824,11 +826,11 @@ public class ChartDemoView implements Serializable {
         data.addChartDataSet(radarDataSet2);
 
         List<List<String>> labels = new ArrayList<>();
-        labels.add(new ArrayList(Arrays.asList("Process", "Excellence")));
-        labels.add(new ArrayList(Arrays.asList("Problem", "Solving")));
-        labels.add(new ArrayList(Arrays.asList("Facilitation")));
-        labels.add(new ArrayList(Arrays.asList("Project", "Mgmt")));
-        labels.add(new ArrayList(Arrays.asList("Change", "Mgmt")));
+        labels.add(new ArrayList<>(Arrays.asList("Process", "Excellence")));
+        labels.add(new ArrayList<>(Arrays.asList("Problem", "Solving")));
+        labels.add(new ArrayList<>(Arrays.asList("Facilitation")));
+        labels.add(new ArrayList<>(Arrays.asList("Project", "Mgmt")));
+        labels.add(new ArrayList<>(Arrays.asList("Change", "Mgmt")));
         data.setLabels(labels);
 
         /* Options */

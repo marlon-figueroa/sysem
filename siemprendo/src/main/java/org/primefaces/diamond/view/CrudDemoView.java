@@ -38,7 +38,9 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class CrudDemoView implements Serializable {
     
-    private List<Product> products;
+    private static final long serialVersionUID = 1L;
+
+	private List<Product> products;
 
     private Product selectedProduct;
 

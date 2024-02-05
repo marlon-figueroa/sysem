@@ -15,11 +15,6 @@
  */
 package org.primefaces.diamond.view;
 
-import org.primefaces.diamond.domain.Product;
-import org.primefaces.diamond.domain.Product;
-import org.primefaces.diamond.service.ProductService;
-import org.primefaces.diamond.service.ProductService;
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -28,11 +23,16 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.diamond.domain.Product;
+import org.primefaces.diamond.service.ProductService;
+
 @Named
 @ViewScoped
 public class DashboardView implements Serializable {
     
-    private List<Product> productsThisWeek;
+    private static final long serialVersionUID = 1L;
+
+	private List<Product> productsThisWeek;
 
     private List<Product> productsLastWeek;
 

@@ -27,6 +27,7 @@ import javax.inject.Named;
 @ApplicationScoped
 public class DocumentService {
     
+	@SuppressWarnings({ "rawtypes", "unchecked", "unused" })
     public TreeNode createDocuments() {
         TreeNode root = new DefaultTreeNode(new Document("Files", "-", "Folder"), null);
 		
@@ -60,7 +61,8 @@ public class DocumentService {
         return root;
     }
     
-    public TreeNode createCheckboxDocuments() {
+    @SuppressWarnings({ "rawtypes", "unchecked", "unused" })
+	public TreeNode createCheckboxDocuments() {
         TreeNode root = new CheckboxTreeNode(new Document("Files", "-", "Folder"), null);
 		
 		TreeNode documents = new CheckboxTreeNode(new Document("Documents", "-", "Folder"), root);

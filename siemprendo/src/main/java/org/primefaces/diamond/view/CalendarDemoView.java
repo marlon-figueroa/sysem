@@ -15,27 +15,33 @@
  */
 package org.primefaces.diamond.view;
 
-import org.primefaces.event.schedule.ScheduleEntryMoveEvent;
-import org.primefaces.event.schedule.ScheduleEntryResizeEvent;
-import org.primefaces.event.SelectEvent;
-import org.primefaces.model.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.schedule.ScheduleEntryMoveEvent;
+import org.primefaces.event.schedule.ScheduleEntryResizeEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 
 @Named
 @ViewScoped
 public class CalendarDemoView implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	private ScheduleModel eventModel;
 	
-	private ScheduleEvent event = new DefaultScheduleEvent();
+	private ScheduleEvent<Object> event = new DefaultScheduleEvent<>();
 
 	private boolean showWeekends = true;
 	private boolean tooltip = true;
@@ -56,7 +62,7 @@ public class CalendarDemoView implements Serializable {
 	public void init() {
 		eventModel = new DefaultScheduleModel();
 
-		DefaultScheduleEvent event = DefaultScheduleEvent.builder()
+		DefaultScheduleEvent<Object> event = DefaultScheduleEvent.builder()
 				.title("Client A Meeting")
 				.startDate(previousDay8Pm())
 				.endDate(previousDay11Pm())
@@ -90,7 +96,7 @@ public class CalendarDemoView implements Serializable {
 				.build();
 		eventModel.addEvent(event);
 
-		DefaultScheduleEvent scheduleEventAllDay=DefaultScheduleEvent.builder()
+		DefaultScheduleEvent<Object> scheduleEventAllDay=DefaultScheduleEvent.builder()
 				.title("Team Meeting")
 				.startDate(sevenDaysLater0am())
 				.endDate(eightDaysLater0am())
@@ -154,11 +160,11 @@ public class CalendarDemoView implements Serializable {
 		return LocalDate.now().plusDays(1);
 	}
 
-	public ScheduleEvent getEvent() {
+	public ScheduleEvent<Object> getEvent() {
 		return event;
 	}
 
-	public void setEvent(ScheduleEvent event) {
+	public void setEvent(ScheduleEvent<Object> event) {
 		this.event = event;
 	}
 	
@@ -175,10 +181,10 @@ public class CalendarDemoView implements Serializable {
 		else
 			eventModel.updateEvent(event);
 		
-		event = new DefaultScheduleEvent();
+		event = new DefaultScheduleEvent<>();
 	}
 	
-	public void onEventSelect(SelectEvent<ScheduleEvent> selectEvent) {
+	public void onEventSelect(SelectEvent<ScheduleEvent<Object>> selectEvent) {
 		event = selectEvent.getObject();
 	}
 	

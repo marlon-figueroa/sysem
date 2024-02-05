@@ -36,7 +36,9 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class DataTableDemoView implements Serializable {
 
-    private List<Customer> customers1;
+    private static final long serialVersionUID = 1L;
+
+	private List<Customer> customers1;
 
     private List<Customer> customers2;
 
