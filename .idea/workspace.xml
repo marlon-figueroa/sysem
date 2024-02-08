@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6b903902-0cf6-4f3c-a753-ee8f2af835ee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/siemprendo/.settings/org.eclipse.wst.common.component" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/.settings/org.eclipse.wst.common.component" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/domain/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/domain/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/domain/JwtUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/domain/JwtUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/HttpClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/HttpClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/util/ServiceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/util/ServiceApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/util/SessionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/service/util/SessionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/java/org/primefaces/diamond/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/siemprendo/src/main/webapp/login.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/siemprendo/src/main/webapp/login.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysem-sb3/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sysem-sb3/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysem-sb3/src/main/java/com/app/sysem/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sysem-sb3/src/main/java/com/app/sysem/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysem-sb3/src/main/java/com/app/sysem/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sysem-sb3/src/main/java/com/app/sysem/controller/UserController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2c1Uw1C0qBJDfZz3sqimPEB9dKc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/marlonfigueroa/Documents/workspace-sts/sysem"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b903902-0cf6-4f3c-a753-ee8f2af835ee" name="Changes" comment="" />
+      <created>1707278814312</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707278814312</updated>
+    </task>
+    <servers />
+  </component>
+</project>

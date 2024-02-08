@@ -1,11 +1,22 @@
 package org.primefaces.diamond.domain;
 
-public class JwtUser {
+import com.google.gson.annotations.SerializedName;
 
+public class JwtUser {
+	
+	@SerializedName("id")
 	private Integer id;
+	
+	@SerializedName("firstname")
 	private String firstname;
+	
+	@SerializedName("lastname")
 	private String lastname;
+	
+	@SerializedName("email")
 	private String email;
+	
+	@SerializedName("password")
 	private String password;
 
 	public JwtUser() {

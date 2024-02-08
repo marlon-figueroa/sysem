@@ -1,8 +1,13 @@
 package org.primefaces.diamond.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class AuthenticationResponse {
 
+	@SerializedName("access_token")
 	private String accessToken;
+	
+	@SerializedName("refresh_token")
 	private String refreshToken;
 
 	public AuthenticationResponse() {

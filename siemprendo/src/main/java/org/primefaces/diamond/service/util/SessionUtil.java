@@ -17,18 +17,15 @@ public class SessionUtil {
 	}
 
 	public static String getUsername() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		return session.getAttribute("username").toString();
+		return (String) getSession().getAttribute("username");
 	}
 
-	public static String getTokenActivo() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		return session.getAttribute("token").toString();
+	public static String getAccessToken() {
+		return (String) getSession().getAttribute("token");
 	}
 
 	public static JwtUser getLoggedInUser() {
-		HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-		return (JwtUser) session.getAttribute("loggedInUser");
+		return (JwtUser) getSession().getAttribute("loggedInUser");
 	}
 
 	public static String getUserId() {
