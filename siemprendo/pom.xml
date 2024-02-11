@@ -15,8 +15,11 @@
 		<owb.version>2.0.20</owb.version>
 		<mojarra.version>2.3.14</mojarra.version>
 		<open-pdf.version>1.3.24</open-pdf.version>
+		<!-- http client & core 5 -->
+        <httpcore5.version>5.2</httpcore5.version>
+        <httpclient5.version>5.2</httpclient5.version>
+        <httpclient5-fluent.version>5.2</httpclient5-fluent.version>
 		<poi.version>5.0.0</poi.version>
-		<httpclient.version>5.3.1</httpclient.version>
 		<packaging.type>war</packaging.type>
 	</properties>
 
@@ -100,15 +103,49 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>2.10.1</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.httpcomponents.client5</groupId>
-			<artifactId>httpclient5-fluent</artifactId>
-			<version>${httpclient.version}</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.14.0</version>
 		</dependency>
+		<!-- http client -->
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <version>${httpclient5.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents.core5</groupId>
+            <artifactId>httpcore5</artifactId>
+            <version>${httpcore5.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5-fluent</artifactId>
+            <version>${httpclient5-fluent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
 		<!-- Export Demo Impl -->
 		<dependency>
@@ -246,7 +283,8 @@
 									<descriptors>
 										<descriptor>src/assemble/theme.xml</descriptor>
 									</descriptors>
-									<finalName>${project.name}-theme-${project.version}</finalName>
+									<finalName>
+										${project.name}-theme-${project.version}</finalName>
 									<appendAssemblyId>false</appendAssemblyId>
 								</configuration>
 							</execution>
@@ -256,7 +294,8 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-shade-plugin</artifactId>
 						<configuration>
-							<finalName>${project.name}-theme-${project.version}-jakarta</finalName>
+							<finalName>
+								${project.name}-theme-${project.version}-jakarta</finalName>
 							<shadedArtifactAttached>false</shadedArtifactAttached>
 							<createDependencyReducedPom>false</createDependencyReducedPom>
 							<promoteTransitiveDependencies>true</promoteTransitiveDependencies>
@@ -270,8 +309,10 @@
 											org/primefaces/${project.name}/component/*</include>
 										<include>META-INF/MANIFEST.MF</include>
 										<include>META-INF/faces-config.xml</include>
-										<include>META-INF/primefaces-${project.name}.taglib.xml</include>
-										<include>META-INF/resources/primefaces-${project.name}-*/*</include>
+										<include>
+											META-INF/primefaces-${project.name}.taglib.xml</include>
+										<include>
+											META-INF/resources/primefaces-${project.name}-*/*</include>
 									</includes>
 								</filter>
 							</filters>
@@ -288,22 +329,30 @@
 									<shadedClassifierName>jakarta</shadedClassifierName>
 									<createDependencyReducedPom>false</createDependencyReducedPom>
 									<transformers>
-										<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-										<transformer implementation="io.yupiik.maven.shade.transformer.RelocationTransformer">
+										<transformer
+											implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+										<transformer
+											implementation="io.yupiik.maven.shade.transformer.RelocationTransformer">
 											<delegates>
-												<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer" />
-												<transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-													<resource>META-INF/faces-config.xml</resource>
+												<transformer
+													implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer" />
+												<transformer
+													implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
+													<resource>
+														META-INF/faces-config.xml</resource>
 												</transformer>
-												<transformer implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
-													<resource>META-INF/primefaces-${project.name}.taglib.xml</resource>
+												<transformer
+													implementation="org.apache.maven.plugins.shade.resource.XmlAppendingTransformer">
+													<resource>
+														META-INF/primefaces-${project.name}.taglib.xml</resource>
 												</transformer>
 											</delegates>
 										</transformer>
 									</transformers>
 									<artifactSet>
 										<includes>
-											<include>${project.groupId}:${project.artifactId}</include>
+											<include>
+												${project.groupId}:${project.artifactId}</include>
 										</includes>
 									</artifactSet>
 									<relocations>
