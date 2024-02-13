@@ -1763,7 +1763,7 @@ a {
   .login-body .login-wrapper .login-image {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("#{resource['diamond-layout:images/pages/bg-login.jpg']}");
+    background-image: url("#{resource['diamond-layout:images/pages/img-login.d03df42a.svg']}");
   }
 }
 @media (max-width: 992px) {

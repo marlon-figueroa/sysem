@@ -67,6 +67,7 @@ public class LoginView implements Serializable {
 	}
 	
 	public String logout() {
+		LOGGER.info("CERRAR SESION");
 		SessionUtil.getSession().invalidate();
 		return "login?faces-redirect=true";
 	}

@@ -25,17 +25,16 @@
 		        <p:dialog widgetVar="statusDialog" modal="true" draggable="false"
 					closable="false" resizable="false" showHeader="false">
 					<div class="p-grid p-jc-center p-ai-center vertical-container">
-						<i class="pi pi-spin pi-spinner layout-ajax-loader-icon" aria-hidden="true"></i>
+						<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
 					</div>
-				</p:dialog>
+				</p:dialog> 
 	        
 	            <div class="login-panel">
 	            	<p:growl id="growl" showDetail="true" showSummary="true" sticky="true" />
-	                <p:graphicImage name="images/#{guestPreferences.scheme eq 'light' ? 'logo-dark.svg' : 'logo-white.svg'}" styleClass="logo" library="diamond-layout" />
+	                <p:graphicImage name="images/#{guestPreferences.scheme eq 'light' ? 'llaves.png' : 'login.png'}" styleClass="logo" library="diamond-layout" />
 	
 	                <div class="login-form">
-	                    <h2>Cree su cuenta aqui</h2>
-	                    <p>Cree la cuenta en este enlace? <a href="#">Registro</a></p>
+	                	<h1 style="font-size: xxx-large;"><strong>SYSEM</strong></h1>
 	                    <p:inputText id="email" placeholder="Email" value="#{loginView.authReq.email}"/>
 	                    <p:password id="password" placeholder="Password" value="#{loginView.authReq.password}" />
 	                    <p:commandButton value="Ingresar" 
@@ -44,6 +43,8 @@
 	                    	action="#{loginView.login}" >
 	                    		<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 	                    </p:commandButton>
+	                    <br/>
+	                    <p>Cree la cuenta en este enlace? <a href="#">Registro</a></p>
 	                </div>
 	
 	                <p>Un problema? <a href="#">Click aqui</a> y dinos en que podemos ayudarte.</p>
@@ -51,7 +52,7 @@
 	            
 	            <div class="login-image">
 	                <div class="login-image-content">
-	                    <h1>SYSEM</h1>
+	                    <h1></h1>
 	                </div>
 	                <div class="image-footer">
 	                    <p>marlon.f.1993@gmail.com, sysem.</p>
