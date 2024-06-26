@@ -227,7 +227,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
         ResponseWriter writer = context.getResponseWriter();
         String title = menuitem.getTitle();
         boolean disabled = menuitem.isDisabled();
-        Object value = menuitem.getValue();
+        menuitem.getValue();
         String style = menuitem.getStyle();
         String styleClass = menuitem.getStyleClass();
 
@@ -392,7 +392,8 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
     }
 
     protected AjaxRequestBuilder getAjaxRequestBuilder() {
-        Class rootContext;
+        @SuppressWarnings("rawtypes")
+		Class rootContext;
         Object requestContextInstance;
         AjaxRequestBuilder builder;
 
@@ -407,7 +408,8 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
         }
 
         try {
-            Method method = rootContext.getMethod("getCurrentInstance");
+            @SuppressWarnings("unchecked")
+			Method method = rootContext.getMethod("getCurrentInstance");
             requestContextInstance = method.invoke(null);
 
             method = requestContextInstance.getClass().getMethod("getAjaxRequestBuilder");

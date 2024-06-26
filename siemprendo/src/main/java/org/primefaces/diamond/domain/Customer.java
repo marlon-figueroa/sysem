@@ -20,7 +20,8 @@ import java.time.LocalDate;
 
 public class Customer implements Serializable {
 
-    private int id;
+    private static final long serialVersionUID = 2219676426736895250L;
+	private int id;
     private String name;
     private Country country;
     private LocalDate date;

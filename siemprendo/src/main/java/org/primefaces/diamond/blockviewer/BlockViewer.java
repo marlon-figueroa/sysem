@@ -22,7 +22,9 @@ import java.io.Serializable;
 @FacesComponent(value="BlockViewer")
 public class BlockViewer extends UINamingContainer implements Serializable {
 
-    @Override
+    private static final long serialVersionUID = -5208141912655989320L;
+
+	@Override
     public String getFamily() { return "javax.faces.NamingContainer"; }
 
     private enum PropertyKeys {

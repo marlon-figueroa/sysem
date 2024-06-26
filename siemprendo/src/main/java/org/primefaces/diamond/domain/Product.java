@@ -20,7 +20,9 @@ import java.util.List;
 
 public class Product implements Serializable {
     
-    private int id;
+    private static final long serialVersionUID = -2710868054782914270L;
+
+	private int id;
 
     private String code;
 

@@ -19,7 +19,8 @@ import java.io.Serializable;
 
 public class Representative implements Serializable {
 
-    private String name;
+    private static final long serialVersionUID = 1547289269855682530L;
+	private String name;
     private String image;
 
     public Representative() {}

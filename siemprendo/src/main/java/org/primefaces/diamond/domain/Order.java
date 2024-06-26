@@ -20,7 +20,9 @@ import java.time.LocalDate;
 
 public class Order implements Serializable {
     
-    private int id;
+    private static final long serialVersionUID = -5004339249458966742L;
+
+	private int id;
 
     private String productCode;
 

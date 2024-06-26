@@ -36,7 +36,6 @@ public class CategoryRestController {
 	 */
 	@GetMapping("/")
 	public ResponseEntity<CategoryResponseRest> searchCategories() {
-
 		ResponseEntity<CategoryResponseRest> response = service.search();
 		return response;
 	}
@@ -49,7 +48,6 @@ public class CategoryRestController {
 	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<CategoryResponseRest> searchCategoriesById(@PathVariable Long id) {
-
 		ResponseEntity<CategoryResponseRest> response = service.searchById(id);
 		return response;
 	}
@@ -62,7 +60,6 @@ public class CategoryRestController {
 	 */
 	@PostMapping("/")
 	public ResponseEntity<CategoryResponseRest> save(@RequestBody Category category) {
-
 		ResponseEntity<CategoryResponseRest> response = service.save(category);
 		return response;
 	}
@@ -76,7 +73,6 @@ public class CategoryRestController {
 	 */
 	@PutMapping("/{id}")
 	public ResponseEntity<CategoryResponseRest> update(@RequestBody Category category, @PathVariable Long id) {
-
 		ResponseEntity<CategoryResponseRest> response = service.update(category, id);
 		return response;
 	}
@@ -89,7 +85,6 @@ public class CategoryRestController {
 	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<CategoryResponseRest> delete(@PathVariable Long id) {
-
 		ResponseEntity<CategoryResponseRest> response = service.deleteById(id);
 		return response;
 	}
@@ -102,20 +97,13 @@ public class CategoryRestController {
 	 */
 	@GetMapping("/export/excel")
 	public void exportToExcel(HttpServletResponse response) throws IOException {
-
 		response.setContentType("application/octet-stream");
-
 		String headerKey = "Content-Disposition";
 		String headerValue = "attachment; filename=result_category.xlsx";
 		response.setHeader(headerKey, headerValue);
-
 		ResponseEntity<CategoryResponseRest> categoryResponse = service.search();
-
-		CategoryExcelExporter excelExporter = new CategoryExcelExporter(
-				categoryResponse.getBody().getCategoryResponse().getCategory());
-
+		CategoryExcelExporter excelExporter = new CategoryExcelExporter(categoryResponse.getBody().getCategoryResponse().getCategory());
 		excelExporter.export(response);
-
 	}
 
 }
