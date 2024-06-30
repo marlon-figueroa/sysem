@@ -39,82 +39,81 @@ import org.primefaces.diamond.service.util.SessionUtil;
 @Named
 @ApplicationScoped
 public class AuthService extends HttpClientService {
-	
-	private static final Logger LOGGER = Logger.getLogger(AuthService.class);
 
-	public AuthenticationResponse authenticate(AuthenticationRequest req) throws IOException, InterruptedException {
-		String requestBody = this.toJson(req);
+    private static final Logger LOGGER = Logger.getLogger(AuthService.class);
 
-		String uriStr = this.getFormatterUrl(ServiceApi.AUTHENTICATE);
-		LOGGER.info("CALL... " + uriStr);
-		
-		HttpRequest request = HttpRequest.newBuilder(URI.create(uriStr))
-				.header("Content-Type", "application/json")
-				.POST(BodyPublishers.ofString(requestBody)).build();
+    public AuthenticationResponse authenticate(AuthenticationRequest req) throws IOException, InterruptedException {
+        String requestBody = this.toJson(req);
 
-		java.net.http.HttpResponse<String> response = this.getClient().send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
-		String json = response.body();
-		printJson(json);
+        String uriStr = this.getFormatterUrl(ServiceApi.AUTHENTICATE);
+        LOGGER.info("CALL... " + uriStr);
 
-		boolean verify = response.statusCode() == HttpServletResponse.SC_OK;
-		AuthenticationResponse rsp = null;
-		if (verify) {
-			rsp = (AuthenticationResponse) this.fromJson(json, AuthenticationResponse.class);
-		}
-		return rsp;
-	}
+        HttpRequest request = HttpRequest.newBuilder(URI.create(uriStr))
+                .header("Content-Type", "application/json")
+                .POST(BodyPublishers.ofString(requestBody)).build();
 
-	public JwtUser getUser(String email) throws IOException, ParseException, InterruptedException, ExecutionException {
-		
-		JwtUser rsp = null;
-		String requestUri = MessageFormat.format(ServiceApi.SEARCH_BY_EMAIL.getUri(), email);
+        java.net.http.HttpResponse<String> response = this.getClient().send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+        String json = response.body();
+        printJson(json);
 
-		final IOReactorConfig ioReactorConfig = IOReactorConfig.custom().setSoTimeout(Timeout.ofSeconds(5)).build();
-		final CloseableHttpAsyncClient client = HttpAsyncClients.custom().setIOReactorConfig(ioReactorConfig).build();
-		client.start();
-        
+        boolean verify = response.statusCode() == HttpServletResponse.SC_OK;
+        AuthenticationResponse rsp = null;
+        if (verify) {
+            rsp = (AuthenticationResponse) this.fromJson(json, AuthenticationResponse.class);
+        }
+        return rsp;
+    }
+
+    public JwtUser getUser(String email) throws IOException, ParseException, InterruptedException, ExecutionException {
+
+        JwtUser rsp = null;
+        String requestUri = MessageFormat.format(ServiceApi.SEARCH_BY_EMAIL.getUri(), email);
+
+        final IOReactorConfig ioReactorConfig = IOReactorConfig.custom().setSoTimeout(Timeout.ofSeconds(5)).build();
+        final CloseableHttpAsyncClient client = HttpAsyncClients.custom().setIOReactorConfig(ioReactorConfig).build();
+        client.start();
+
         final HttpHost target = new HttpHost(HOST_CLIENT, PORT_CLIENT);
-        
+
         final SimpleHttpRequest request = SimpleRequestBuilder.get()
                 .setHttpHost(target)
                 .addHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.getMimeType())
                 .addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + SessionUtil.getAccessToken())
                 .setPath(requestUri)
                 .build();
-        
-        
-		final Future<SimpleHttpResponse> future = client.execute(SimpleRequestProducer.create(request),
-				SimpleResponseConsumer.create(), new FutureCallback<SimpleHttpResponse>() {
 
-					@Override
-					public void completed(final SimpleHttpResponse response) {
-						LOGGER.info(request + " -> " + new StatusLine(response));
-						LOGGER.info(response.getBody());
-					}
+        final Future<SimpleHttpResponse> future = client.execute(SimpleRequestProducer.create(request),
+                SimpleResponseConsumer.create(), new FutureCallback<SimpleHttpResponse>() {
 
-					@Override
-					public void failed(final Exception ex) {
-						LOGGER.info(request + "->" + ex);
-					}
+            @Override
+            public void completed(final SimpleHttpResponse response) {
+                LOGGER.info(request + " -> " + new StatusLine(response));
+                LOGGER.info(response.getBody());
+            }
 
-					@Override
-					public void cancelled() {
-						LOGGER.info(request + " cancelled");
-					}
+            @Override
+            public void failed(final Exception ex) {
+                LOGGER.info(request + "->" + ex);
+            }
 
-				});
-		
-		SimpleHttpResponse response = future.get();
-		if (response.getCode() == HttpStatus.SC_OK) {
-			String json = response.getBodyText();
-			printJson(json);
-			rsp = (JwtUser) fromJson(json, JwtUser.class);
-		}
+            @Override
+            public void cancelled() {
+                LOGGER.info(request + " cancelled");
+            }
 
-		LOGGER.info("Shutting down...OK");
-		client.close(CloseMode.GRACEFUL);
+        });
 
-		return rsp;
-	}
+        SimpleHttpResponse response = future.get();
+        if (response.getCode() == HttpStatus.SC_OK) {
+            String json = response.getBodyText();
+            printJson(json);
+            rsp = (JwtUser) fromJson(json, JwtUser.class);
+        }
+
+        LOGGER.info("Shutting down...OK");
+        client.close(CloseMode.GRACEFUL);
+
+        return rsp;
+    }
 
 }

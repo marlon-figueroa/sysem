@@ -29,10 +29,10 @@ import org.primefaces.diamond.service.ProductService;
 @Named
 @ViewScoped
 public class DashboardView implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
-	private List<Product> productsThisWeek;
+    private List<Product> productsThisWeek;
 
     private List<Product> productsLastWeek;
 

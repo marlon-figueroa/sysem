@@ -1,0 +1,13 @@
+[DEBUG] 2024-06-30 00:32:26,570 [main]  org.jboss.logging <clinit> - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+[TRACE] 2024-06-30 00:32:26,584 [main]  org.hibernate.jpa.HibernatePersistenceProvider createEntityManagerFactory - Starting createEntityManagerFactory for persistenceUnitName PU_SYSEM
+[TRACE] 2024-06-30 00:32:26,589 [main]  org.hibernate.jpa.HibernatePersistenceProvider getEntityManagerFactoryBuilderOrNull - Attempting to obtain correct EntityManagerFactoryBuilder for persistenceUnitName : PU_SYSEM
+[TRACE] 2024-06-30 00:32:26,614 [main]  org.hibernate.jpa.boot.internal.PersistenceXmlParser parsePersistenceXml - Attempting to parse persistence.xml file : file:/C:/Users/marlo/source/repos/marlon-figueroa/sysem/siemprendo/target/classes/META-INF/persistence.xml
+[TRACE] 2024-06-30 00:32:26,745 [main]  org.hibernate.boot.archive.internal.ArchiveHelper getJarURLFromURLEntry - JAR URL from URL Entry: file:/C:/Users/marlo/source/repos/marlon-figueroa/sysem/siemprendo/target/classes/META-INF/persistence.xml >> file:/C:/Users/marlo/source/repos/marlon-figueroa/sysem/siemprendo/target/classes/
+[TRACE] 2024-06-30 00:32:26,748 [main]  org.hibernate.jpa.boot.internal.PersistenceXmlParser bindPersistenceUnit - Persistence unit name from persistence.xml : PU_SYSEM
+[DEBUG] 2024-06-30 00:32:26,749 [main]  org.hibernate.jpa.HibernatePersistenceProvider getEntityManagerFactoryBuilderOrNull - Located and parsed 1 persistence units; checking each
+[DEBUG] 2024-06-30 00:32:26,749 [main]  org.hibernate.jpa.HibernatePersistenceProvider getEntityManagerFactoryBuilderOrNull - Checking persistence-unit [name=PU_SYSEM, explicit-provider=org.eclipse.persistence.jpa.PersistenceProvider] against incoming persistence unit name [PU_SYSEM]
+[DEBUG] 2024-06-30 00:32:26,751 [main]  org.hibernate.jpa.boot.spi.ProviderChecker extractRequestedProviderName - Persistence-unit [PU_SYSEM] requested PersistenceProvider [org.eclipse.persistence.jpa.PersistenceProvider]
+[TRACE] 2024-06-30 00:32:26,751 [main]  org.hibernate.jpa.boot.spi.ProviderChecker hibernateProviderNamesContain - Checking requested PersistenceProvider name [org.eclipse.persistence.jpa.PersistenceProvider] against Hibernate provider names
+[DEBUG] 2024-06-30 00:32:26,752 [main]  org.hibernate.jpa.HibernatePersistenceProvider getEntityManagerFactoryBuilderOrNull - Excluding from consideration due to provider mis-match
+[DEBUG] 2024-06-30 00:32:26,752 [main]  org.hibernate.jpa.HibernatePersistenceProvider getEntityManagerFactoryBuilderOrNull - Found no matching persistence units
+[TRACE] 2024-06-30 00:32:26,752 [main]  org.hibernate.jpa.HibernatePersistenceProvider createEntityManagerFactory - Could not obtain matching EntityManagerFactoryBuilder, returning null

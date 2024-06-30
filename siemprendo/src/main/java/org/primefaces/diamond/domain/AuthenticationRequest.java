@@ -1,34 +1,36 @@
 package org.primefaces.diamond.domain;
 
-public class AuthenticationRequest {
+import java.io.Serializable;
 
-	private String email;
-	private String password;
+public class AuthenticationRequest implements Serializable {
 
-	public AuthenticationRequest() {
-		super();
-	}
+    private String email;
+    private String password;
 
-	public AuthenticationRequest(String email, String password) {
-		super();
-		this.email = email;
-		this.password = password;
-	}
+    public AuthenticationRequest() {
+        super();
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public AuthenticationRequest(String email, String password) {
+        super();
+        this.email = email;
+        this.password = password;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }

@@ -30,18 +30,18 @@ import javax.faces.view.ViewScoped;
 @Named
 @ViewScoped
 public class TreeDemoView implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
     private TreeNode root1;
     private TreeNode root2;
     private TreeNode root3;
     private TreeNode[] selectedNodes1;
     private TreeNode[] selectedNodes2;
-    
+
     @Inject
     private DocumentService service;
-    
+
     @PostConstruct
     public void init() {
         root1 = service.createCheckboxDocuments();
@@ -49,7 +49,7 @@ public class TreeDemoView implements Serializable {
         root3 = service.createDocuments();
     }
 
-	public TreeNode getRoot1() {
+    public TreeNode getRoot1() {
         return root1;
     }
 

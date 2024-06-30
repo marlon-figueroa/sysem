@@ -41,11 +41,10 @@ public class OverlayDemoView {
     public void init() {
         this.customers = this.service.getCustomers(10);
     }
-    
+
     public List<Customer> getCustomers() {
         return customers;
     }
-
 
     public Customer getSelectedCustomer() {
         return selectedCustomer;

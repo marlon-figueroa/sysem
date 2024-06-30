@@ -70,7 +70,7 @@ public class ChartDemoView implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-	private PieChartModel pieModel;
+    private PieChartModel pieModel;
 
     private PolarAreaChartModel polarAreaModel;
 

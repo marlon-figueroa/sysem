@@ -52,6 +52,7 @@ public class ChronolineView {
     }
 
     public static class Event {
+
         String status;
         String date;
         String icon;

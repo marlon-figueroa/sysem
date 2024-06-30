@@ -99,8 +99,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
                 encodeMenuItem(context, menu, menuItem);
 
                 writer.endElement("li");
-            }
-            else if (element instanceof Submenu) {
+            } else if (element instanceof Submenu) {
                 Submenu submenu = (Submenu) element;
                 String submenuClientId = (submenu instanceof UIComponent) ? ((UIComponent) submenu).getClientId() : menu.getClientId(context) + "_" + submenu.getId();
                 String style = submenu.getStyle();
@@ -121,8 +120,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
                 encodeSubmenu(context, menu, submenu, root);
 
                 writer.endElement("li");
-            }
-            else if (element instanceof Separator) {
+            } else if (element instanceof Separator) {
                 encodeSeparator(context, (Separator) element);
             }
         }
@@ -261,7 +259,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
                 writer.writeAttribute("href", "#", null);
 
                 @SuppressWarnings("deprecation")
-				UIComponent form = ComponentTraversalUtils.closestForm(context, menu);
+                UIComponent form = ComponentTraversalUtils.closestForm(context, menu);
                 if (form == null) {
                     throw new FacesException("MenuItem must be inside a form element");
                 }
@@ -359,7 +357,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
     }
 
     protected String createAjaxRequest(FacesContext context, AbstractMenu menu, AjaxSource source, UIComponent form,
-                                       Map<String, List<String>> params) {
+            Map<String, List<String>> params) {
 
         String clientId = menu.getClientId(context);
 
@@ -393,7 +391,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
 
     protected AjaxRequestBuilder getAjaxRequestBuilder() {
         @SuppressWarnings("rawtypes")
-		Class rootContext;
+        Class rootContext;
         Object requestContextInstance;
         AjaxRequestBuilder builder;
 
@@ -409,7 +407,7 @@ public class DiamondMenuRenderer extends BaseMenuRenderer {
 
         try {
             @SuppressWarnings("unchecked")
-			Method method = rootContext.getMethod("getCurrentInstance");
+            Method method = rootContext.getMethod("getCurrentInstance");
             requestContextInstance = method.invoke(null);
 
             method = requestContextInstance.getClass().getMethod("getAjaxRequestBuilder");

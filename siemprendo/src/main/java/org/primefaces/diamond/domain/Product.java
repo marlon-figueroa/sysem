@@ -19,10 +19,10 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Product implements Serializable {
-    
+
     private static final long serialVersionUID = -2710868054782914270L;
 
-	private int id;
+    private int id;
 
     private String code;
 
@@ -44,7 +44,8 @@ public class Product implements Serializable {
 
     private List<Order> orders;
 
-    public Product() {}
+    public Product() {
+    }
 
     public Product(int id, String code, String name, String description, String image, double price, String category, int quantity, InventoryStatus inventoryStatus, int rating) {
         this.id = id;
@@ -161,20 +162,24 @@ public class Product implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Product other = (Product) obj;
         if (code == null) {
-            if (other.code != null)
+            if (other.code != null) {
                 return false;
-        } else if (!code.equals(other.code))
+            }
+        } else if (!code.equals(other.code)) {
             return false;
+        }
         return true;
     }
-
 
 }

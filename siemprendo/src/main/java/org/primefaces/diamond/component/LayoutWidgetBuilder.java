@@ -23,18 +23,18 @@ public class LayoutWidgetBuilder extends WidgetBuilder {
         rw.writeAttribute("id", id + "_s", null);
         rw.writeAttribute("type", "text/javascript", null);
         rw.write("$(function(){");
-            rw.write("PrimeFaces.cw(\"");
-            rw.write(widgetClass);
-            rw.write("\",\"");
-            rw.write(widgetVar);
-            rw.write("\",{id:\"");
-            rw.write(id);
-            rw.write("\"");
-            //attrs
-            rw.write(",");
-            rw.write("pathname:\"");
-            rw.write(pathname);
-            rw.write("\"");
+        rw.write("PrimeFaces.cw(\"");
+        rw.write(widgetClass);
+        rw.write("\",\"");
+        rw.write(widgetVar);
+        rw.write("\",{id:\"");
+        rw.write(id);
+        rw.write("\"");
+        //attrs
+        rw.write(",");
+        rw.write("pathname:\"");
+        rw.write(pathname);
+        rw.write("\"");
         return this;
     }
 

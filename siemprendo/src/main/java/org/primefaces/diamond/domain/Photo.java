@@ -28,7 +28,7 @@ import java.io.Serializable;
 public class Photo implements Serializable {
 
     private static final long serialVersionUID = 603375523528739180L;
-	private String itemImageSrc;
+    private String itemImageSrc;
     private String thumbnailImageSrc;
     private String alt;
     private String title;

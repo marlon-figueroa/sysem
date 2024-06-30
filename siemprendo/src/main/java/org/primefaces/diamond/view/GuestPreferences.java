@@ -29,139 +29,139 @@ import javax.enterprise.context.SessionScoped;
 @Named
 @SessionScoped
 public class GuestPreferences implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
 
-	private String layout = "static";
+    private static final long serialVersionUID = 1L;
 
-	private String componentTheme = "blue";
+    private String layout = "static";
 
-	private String menuTheme = "darkgray";
+    private String componentTheme = "blue";
 
-	private String logoColor = "white";
+    private String menuTheme = "darkgray";
 
-	private String scheme = "light";
+    private String logoColor = "white";
 
-	private String inputStyle = "outlined";
+    private String scheme = "light";
 
-	private List<MenuTheme> menuThemes;
+    private String inputStyle = "outlined";
 
-	private List<ComponentTheme> componentThemes;
+    private List<MenuTheme> menuThemes;
 
-	@PostConstruct
-	public void init() {
-		menuThemes = new ArrayList<MenuTheme>();
-		menuThemes.add(new MenuTheme("white", "#ffffff", "dark", null));
-		menuThemes.add(new MenuTheme("darkgray", "#343a40", "white", null));
-		menuThemes.add(new MenuTheme("blue", "#1976d2", "white", "blue"));
-		menuThemes.add(new MenuTheme("bluegray", "#455a64", "white", "lightgreen"));
-		menuThemes.add(new MenuTheme("brown", "#5d4037", "white", "cyan"));
-		menuThemes.add(new MenuTheme("cyan", "#0097a7", "white", "cyan"));
-		menuThemes.add(new MenuTheme("green", "#388e3C", "white", "green"));
-		menuThemes.add(new MenuTheme("indigo", "#303f9f", "white", "indigo"));
-		menuThemes.add(new MenuTheme("deeppurple", "#512da8", "white", "deeppurple"));
-		menuThemes.add(new MenuTheme("orange", "#F57c00", "dark", "orange"));
-		menuThemes.add(new MenuTheme("pink", "#c2185b", "white", "pink"));
-		menuThemes.add(new MenuTheme("purple", "#7b1fa2", "white", "purple"));
-		menuThemes.add(new MenuTheme("teal", "#00796b", "white", "teal"));
+    private List<ComponentTheme> componentThemes;
 
-		componentThemes = new ArrayList<ComponentTheme>();
-		componentThemes.add(new ComponentTheme("blue", "#42A5F5"));
-		componentThemes.add(new ComponentTheme("green", "#66BB6A"));
-		componentThemes.add(new ComponentTheme("lightgreen", "#9CCC65"));
-		componentThemes.add(new ComponentTheme("purple", "#AB47BC"));
-		componentThemes.add(new ComponentTheme("deeppurple", "#7E57C2"));
-		componentThemes.add(new ComponentTheme("indigo", "#5C6BC0"));
-		componentThemes.add(new ComponentTheme("orange", "#FFA726"));
-		componentThemes.add(new ComponentTheme("cyan", "#26C6DA"));
-		componentThemes.add(new ComponentTheme("pink", "#EC407A"));
-		componentThemes.add(new ComponentTheme("teal", "#26A69A"));
-	}
+    @PostConstruct
+    public void init() {
+        menuThemes = new ArrayList<MenuTheme>();
+        menuThemes.add(new MenuTheme("white", "#ffffff", "dark", null));
+        menuThemes.add(new MenuTheme("darkgray", "#343a40", "white", null));
+        menuThemes.add(new MenuTheme("blue", "#1976d2", "white", "blue"));
+        menuThemes.add(new MenuTheme("bluegray", "#455a64", "white", "lightgreen"));
+        menuThemes.add(new MenuTheme("brown", "#5d4037", "white", "cyan"));
+        menuThemes.add(new MenuTheme("cyan", "#0097a7", "white", "cyan"));
+        menuThemes.add(new MenuTheme("green", "#388e3C", "white", "green"));
+        menuThemes.add(new MenuTheme("indigo", "#303f9f", "white", "indigo"));
+        menuThemes.add(new MenuTheme("deeppurple", "#512da8", "white", "deeppurple"));
+        menuThemes.add(new MenuTheme("orange", "#F57c00", "dark", "orange"));
+        menuThemes.add(new MenuTheme("pink", "#c2185b", "white", "pink"));
+        menuThemes.add(new MenuTheme("purple", "#7b1fa2", "white", "purple"));
+        menuThemes.add(new MenuTheme("teal", "#00796b", "white", "teal"));
 
-	public String getLayout() {
-		return this.layout;
-	}
+        componentThemes = new ArrayList<ComponentTheme>();
+        componentThemes.add(new ComponentTheme("blue", "#42A5F5"));
+        componentThemes.add(new ComponentTheme("green", "#66BB6A"));
+        componentThemes.add(new ComponentTheme("lightgreen", "#9CCC65"));
+        componentThemes.add(new ComponentTheme("purple", "#AB47BC"));
+        componentThemes.add(new ComponentTheme("deeppurple", "#7E57C2"));
+        componentThemes.add(new ComponentTheme("indigo", "#5C6BC0"));
+        componentThemes.add(new ComponentTheme("orange", "#FFA726"));
+        componentThemes.add(new ComponentTheme("cyan", "#26C6DA"));
+        componentThemes.add(new ComponentTheme("pink", "#EC407A"));
+        componentThemes.add(new ComponentTheme("teal", "#26A69A"));
+    }
 
-	public void setLayout(String layout) {
-		this.layout = layout;
-	}
+    public String getLayout() {
+        return this.layout;
+    }
 
-	public String getComponentTheme() {
-		return this.componentTheme;
-	}
+    public void setLayout(String layout) {
+        this.layout = layout;
+    }
 
-	public void setComponentTheme(String componentTheme) {
-		this.componentTheme = componentTheme;
-	}
+    public String getComponentTheme() {
+        return this.componentTheme;
+    }
 
-	public String getMenuTheme() {
-		if (this.scheme.equals("light")) {
-			return menuTheme;
-		} else {
-			return this.scheme;
-		}
-	}
+    public void setComponentTheme(String componentTheme) {
+        this.componentTheme = componentTheme;
+    }
 
-	public void setMenuTheme(String menuTheme) {
-		this.menuTheme = menuTheme;
-	}
+    public String getMenuTheme() {
+        if (this.scheme.equals("light")) {
+            return menuTheme;
+        } else {
+            return this.scheme;
+        }
+    }
 
-	public String getLayoutClass() {
-		return "layout-" + this.layout;
-	}
+    public void setMenuTheme(String menuTheme) {
+        this.menuTheme = menuTheme;
+    }
 
-	public String getSidebarThemeClass() {
-		if (this.scheme.equals("light")) {
-			return "layout-sidebar-" + this.menuTheme;
-		} else {
-			return "layout-sidebar-" + this.scheme;
-		}
-	}
+    public String getLayoutClass() {
+        return "layout-" + this.layout;
+    }
 
-	public String getInputStyleClass() {
-		return this.inputStyle.equals("filled") ? "ui-input-filled" : "";
-	}
+    public String getSidebarThemeClass() {
+        if (this.scheme.equals("light")) {
+            return "layout-sidebar-" + this.menuTheme;
+        } else {
+            return "layout-sidebar-" + this.scheme;
+        }
+    }
 
-	public String getLogoColor() {
-		return logoColor;
-	}
+    public String getInputStyleClass() {
+        return this.inputStyle.equals("filled") ? "ui-input-filled" : "";
+    }
 
-	public void setLogoColor(String logoColor) {
-		this.logoColor = logoColor;
-	}
+    public String getLogoColor() {
+        return logoColor;
+    }
 
-	public String getInputStyle() {
-		return inputStyle;
-	}
+    public void setLogoColor(String logoColor) {
+        this.logoColor = logoColor;
+    }
 
-	public void setInputStyle(String inputStyle) {
-		this.inputStyle = inputStyle;
-	}
+    public String getInputStyle() {
+        return inputStyle;
+    }
 
-	public List<MenuTheme> getMenuThemes() {
-		return this.menuThemes;
-	}
+    public void setInputStyle(String inputStyle) {
+        this.inputStyle = inputStyle;
+    }
 
-	public List<ComponentTheme> getComponentThemes() {
-		return this.componentThemes;
-	}
+    public List<MenuTheme> getMenuThemes() {
+        return this.menuThemes;
+    }
 
-	public void changeMenuTheme(MenuTheme menuTheme) {
-		this.menuTheme = menuTheme.getName();
-		this.logoColor = menuTheme.getLogoColor();
+    public List<ComponentTheme> getComponentThemes() {
+        return this.componentThemes;
+    }
 
-		if (menuTheme.getComponentTheme() != null) {
-			this.componentTheme = menuTheme.getComponentTheme();
-		}
-	}
+    public void changeMenuTheme(MenuTheme menuTheme) {
+        this.menuTheme = menuTheme.getName();
+        this.logoColor = menuTheme.getLogoColor();
 
-	public String getScheme() {
-		return this.scheme;
-	}
+        if (menuTheme.getComponentTheme() != null) {
+            this.componentTheme = menuTheme.getComponentTheme();
+        }
+    }
 
-	public void setScheme(String scheme) {
-		this.scheme = scheme;
-	}
+    public String getScheme() {
+        return this.scheme;
+    }
+
+    public void setScheme(String scheme) {
+        this.scheme = scheme;
+    }
 
     public void onLayoutChange() {
         PrimeFaces.current().executeScript("PrimeFaces.DiamondConfigurator.changeLayout('" + layout + "')");
@@ -170,98 +170,97 @@ public class GuestPreferences implements Serializable {
     public void onSchemeChange() {
         if (this.scheme.equals("light")) {
             String _logoColor = menuTheme.equals("white") || menuTheme.equals("orange") ? "dark" : "white";
-            PrimeFaces.current().executeScript("PrimeFaces.DiamondConfigurator.changeMenuTheme('" + menuTheme + "', '" + _logoColor +"')");
-        }
-        else {
+            PrimeFaces.current().executeScript("PrimeFaces.DiamondConfigurator.changeMenuTheme('" + menuTheme + "', '" + _logoColor + "')");
+        } else {
             PrimeFaces.current().executeScript("PrimeFaces.DiamondConfigurator.changeMenuTheme('" + scheme + "', 'white')");
         }
 
         PrimeFaces.current().executeScript("PrimeFaces.DiamondConfigurator.changeScheme('" + scheme + "')");
     }
 
-	public class MenuTheme {
+    public class MenuTheme implements Serializable {
 
-		private String name;
+        private String name;
 
-		private String color;
+        private String color;
 
-		private String logoColor;
+        private String logoColor;
 
-		private String componentTheme;
+        private String componentTheme;
 
-		public MenuTheme() {
-			super();
-		}
+        public MenuTheme() {
+            super();
+        }
 
-		public MenuTheme(String name, String color, String logoColor, String componentTheme) {
-			this.name = name;
-			this.color = color;
-			this.logoColor = logoColor;
-			this.componentTheme = componentTheme;
-		}
+        public MenuTheme(String name, String color, String logoColor, String componentTheme) {
+            this.name = name;
+            this.color = color;
+            this.logoColor = logoColor;
+            this.componentTheme = componentTheme;
+        }
 
-		public String getName() {
-			return name;
-		}
+        public String getName() {
+            return name;
+        }
 
-		public void setName(String name) {
-			this.name = name;
-		}
+        public void setName(String name) {
+            this.name = name;
+        }
 
-		public String getColor() {
-			return color;
-		}
+        public String getColor() {
+            return color;
+        }
 
-		public void setColor(String color) {
-			this.color = color;
-		}
+        public void setColor(String color) {
+            this.color = color;
+        }
 
-		public String getLogoColor() {
-			return logoColor;
-		}
+        public String getLogoColor() {
+            return logoColor;
+        }
 
-		public void setLogoColor(String logoColor) {
-			this.logoColor = logoColor;
-		}
+        public void setLogoColor(String logoColor) {
+            this.logoColor = logoColor;
+        }
 
-		public String getComponentTheme() {
-			return componentTheme;
-		}
+        public String getComponentTheme() {
+            return componentTheme;
+        }
 
-		public void setComponentTheme(String componentTheme) {
-			this.componentTheme = componentTheme;
-		}
-	}
+        public void setComponentTheme(String componentTheme) {
+            this.componentTheme = componentTheme;
+        }
+    }
 
-	public class ComponentTheme {
+    public class ComponentTheme implements Serializable {
 
-		private String name;
+        private String name;
 
-		private String color;
+        private String color;
 
-		public ComponentTheme() {
-			super();
-		}
+        public ComponentTheme() {
+            super();
+        }
 
-		public ComponentTheme(String name, String color) {
-			this.name = name;
-			this.color = color;
-		}
+        public ComponentTheme(String name, String color) {
+            this.name = name;
+            this.color = color;
+        }
 
-		public String getName() {
-			return name;
-		}
+        public String getName() {
+            return name;
+        }
 
-		public void setName(String name) {
-			this.name = name;
-		}
+        public void setName(String name) {
+            this.name = name;
+        }
 
-		public String getColor() {
-			return color;
-		}
+        public String getColor() {
+            return color;
+        }
 
-		public void setColor(String color) {
-			this.color = color;
-		}
-	}
+        public void setColor(String color) {
+            this.color = color;
+        }
+    }
 }

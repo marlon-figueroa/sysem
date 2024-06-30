@@ -46,7 +46,7 @@ public class ListDemoView {
     public void init() {
         List<String> citiesSource = new ArrayList<String>();
         List<String> citiesTarget = new ArrayList<String>();
-        
+
         citiesSource.add("San Francisco");
         citiesSource.add("London");
         citiesSource.add("Paris");
@@ -54,7 +54,7 @@ public class ListDemoView {
         citiesSource.add("Berlin");
         citiesSource.add("Barcelona");
         citiesSource.add("Rome");
-        
+
         cities1 = new DualListModel<String>(citiesSource, citiesTarget);
 
         cities2 = new ArrayList<String>();
@@ -80,5 +80,5 @@ public class ListDemoView {
     public List<Product> getProducts() {
         return products;
     }
-    
+
 }

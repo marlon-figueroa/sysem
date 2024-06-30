@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 @Named
 @ApplicationScoped
 public class ProductService {
@@ -84,9 +83,7 @@ public class ProductService {
             }
 
             return randomList;
-        }
-
-        else {
+        } else {
             return new ArrayList<>(products.subList(0, size));
         }
 

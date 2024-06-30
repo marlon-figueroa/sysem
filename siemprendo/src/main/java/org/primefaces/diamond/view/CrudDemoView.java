@@ -37,10 +37,10 @@ import javax.faces.view.ViewScoped;
 @Named
 @ViewScoped
 public class CrudDemoView implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
-	private List<Product> products;
+    private List<Product> products;
 
     private Product selectedProduct;
 
@@ -56,7 +56,7 @@ public class CrudDemoView implements Serializable {
     public void init() {
         this.products = this.productService.getClonedProducts(30);
     }
-    
+
     public List<Product> getProducts() {
         return products;
     }
@@ -86,11 +86,10 @@ public class CrudDemoView implements Serializable {
             this.selectedProduct.setCode(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 9));
             this.products.add(this.selectedProduct);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Product Added"));
-        }
-        else {
+        } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Product Updated"));
         }
-        
+
         PrimeFaces.current().executeScript("PF('manageProductDialog').hide()");
         PrimeFaces.current().ajax().update("form:messages", "form:dt-products");
     }

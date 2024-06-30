@@ -27,12 +27,12 @@ import javax.enterprise.context.RequestScoped;
 public class FormDemoView {
 
     public List<String> completeText(String query) {
-		List<String> results = new ArrayList<>();
-		for(int i = 0; i < 10; i++) {
-			results.add(query + i);
-		}
-		
-		return results;
+        List<String> results = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            results.add(query + i);
+        }
+
+        return results;
     }
 
 }

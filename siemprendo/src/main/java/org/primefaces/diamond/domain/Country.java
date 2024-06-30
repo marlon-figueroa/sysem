@@ -20,10 +20,11 @@ import java.io.Serializable;
 public class Country implements Serializable {
 
     private static final long serialVersionUID = -3146730674220685665L;
-	private String name;
+    private String name;
     private String code;
 
-    public Country() {}
+    public Country() {
+    }
 
     public Country(String name, String code) {
         this.name = name;

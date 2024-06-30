@@ -20,10 +20,11 @@ import java.io.Serializable;
 public class Representative implements Serializable {
 
     private static final long serialVersionUID = 1547289269855682530L;
-	private String name;
+    private String name;
     private String image;
 
-    public Representative() {}
+    public Representative() {
+    }
 
     public Representative(String name, String image) {
         this.name = name;

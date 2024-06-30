@@ -19,10 +19,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Order implements Serializable {
-    
+
     private static final long serialVersionUID = -5004339249458966742L;
 
-	private int id;
+    private int id;
 
     private String productCode;
 
@@ -36,7 +36,8 @@ public class Order implements Serializable {
 
     private OrderStatus status;
 
-    public Order() {}
+    public Order() {
+    }
 
     public Order(int id, String productCode, LocalDate date, double amount, int quantity, String customer, OrderStatus status) {
         this.id = id;
@@ -47,7 +48,7 @@ public class Order implements Serializable {
         this.customer = customer;
         this.status = status;
     }
-    
+
     public int getId() {
         return id;
     }

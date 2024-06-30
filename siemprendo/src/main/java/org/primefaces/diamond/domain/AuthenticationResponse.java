@@ -1,39 +1,40 @@
 package org.primefaces.diamond.domain;
 
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
-public class AuthenticationResponse {
+public class AuthenticationResponse implements Serializable {
 
-	@SerializedName("access_token")
-	private String accessToken;
-	
-	@SerializedName("refresh_token")
-	private String refreshToken;
+    @SerializedName("access_token")
+    private String accessToken;
 
-	public AuthenticationResponse() {
-		super();
-	}
+    @SerializedName("refresh_token")
+    private String refreshToken;
 
-	public AuthenticationResponse(String accessToken, String refreshToken) {
-		super();
-		this.accessToken = accessToken;
-		this.refreshToken = refreshToken;
-	}
+    public AuthenticationResponse() {
+        super();
+    }
 
-	public String getAccessToken() {
-		return accessToken;
-	}
+    public AuthenticationResponse(String accessToken, String refreshToken) {
+        super();
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+    }
 
-	public void setAccessToken(String accessToken) {
-		this.accessToken = accessToken;
-	}
+    public String getAccessToken() {
+        return accessToken;
+    }
 
-	public String getRefreshToken() {
-		return refreshToken;
-	}
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
 
-	public void setRefreshToken(String refreshToken) {
-		this.refreshToken = refreshToken;
-	}
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
 
 }

@@ -21,7 +21,7 @@ import java.time.LocalDate;
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 2219676426736895250L;
-	private int id;
+    private int id;
     private String name;
     private Country country;
     private LocalDate date;
@@ -29,7 +29,8 @@ public class Customer implements Serializable {
     private int activity;
     private Representative representative;
 
-    public Customer() {}
+    public Customer() {
+    }
 
     public Customer(int id, String name, Country country, LocalDate date, CustomerStatus status, int activity, Representative representative) {
         this.id = id;

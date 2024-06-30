@@ -37,278 +37,278 @@ import org.primefaces.model.ScheduleModel;
 @ViewScoped
 public class CalendarDemoView implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private ScheduleModel eventModel;
-	
-	private ScheduleEvent<Object> event = new DefaultScheduleEvent<>();
+    private ScheduleModel eventModel;
 
-	private boolean showWeekends = true;
-	private boolean tooltip = true;
-	private boolean allDaySlot = true;
+    private ScheduleEvent<Object> event = new DefaultScheduleEvent<>();
 
-	private String timeFormat;
-	private String slotDuration="00:30:00";
-	private String slotLabelInterval;
-	private String scrollTime="06:00:00";
-	private String minTime="04:00:00";
-	private String maxTime="20:00:00";
-	private String locale="en";
-	private String timeZone="";
-	private String clientTimeZone="local";
-	private String columnHeaderFormat="";
+    private boolean showWeekends = true;
+    private boolean tooltip = true;
+    private boolean allDaySlot = true;
+
+    private String timeFormat;
+    private String slotDuration = "00:30:00";
+    private String slotLabelInterval;
+    private String scrollTime = "06:00:00";
+    private String minTime = "04:00:00";
+    private String maxTime = "20:00:00";
+    private String locale = "en";
+    private String timeZone = "";
+    private String clientTimeZone = "local";
+    private String columnHeaderFormat = "";
 
     @PostConstruct
-	public void init() {
-		eventModel = new DefaultScheduleModel();
+    public void init() {
+        eventModel = new DefaultScheduleModel();
 
-		DefaultScheduleEvent<Object> event = DefaultScheduleEvent.builder()
-				.title("Client A Meeting")
-				.startDate(previousDay8Pm())
-				.endDate(previousDay11Pm())
-				.description("Gather Requirements")
-				.build();
-		eventModel.addEvent(event);
+        DefaultScheduleEvent<Object> event = DefaultScheduleEvent.builder()
+                .title("Client A Meeting")
+                .startDate(previousDay8Pm())
+                .endDate(previousDay11Pm())
+                .description("Gather Requirements")
+                .build();
+        eventModel.addEvent(event);
 
-		event = DefaultScheduleEvent.builder()
-				.title("Sales Reports")
-				.startDate(today1Pm())
-				.endDate(today6Pm())
-				.description("Review Reports")
-				.overlapAllowed(true)
-				.build();
-		eventModel.addEvent(event);
+        event = DefaultScheduleEvent.builder()
+                .title("Sales Reports")
+                .startDate(today1Pm())
+                .endDate(today6Pm())
+                .description("Review Reports")
+                .overlapAllowed(true)
+                .build();
+        eventModel.addEvent(event);
 
-		event = DefaultScheduleEvent.builder()
-				.title("Webinar")
-				.startDate(nextDay9Am())
-				.endDate(nextDay11Am())
-				.description("Live Event")
-				.overlapAllowed(true)
-				.build();
-		eventModel.addEvent(event);
+        event = DefaultScheduleEvent.builder()
+                .title("Webinar")
+                .startDate(nextDay9Am())
+                .endDate(nextDay11Am())
+                .description("Live Event")
+                .overlapAllowed(true)
+                .build();
+        eventModel.addEvent(event);
 
-		event = DefaultScheduleEvent.builder()
-				.title("Client B Meeting")
-				.startDate(theDayAfter3Pm())
-				.endDate(fourDaysLater3pm())
-				.description("Introduce Team")
-				.build();
-		eventModel.addEvent(event);
+        event = DefaultScheduleEvent.builder()
+                .title("Client B Meeting")
+                .startDate(theDayAfter3Pm())
+                .endDate(fourDaysLater3pm())
+                .description("Introduce Team")
+                .build();
+        eventModel.addEvent(event);
 
-		DefaultScheduleEvent<Object> scheduleEventAllDay=DefaultScheduleEvent.builder()
-				.title("Team Meeting")
-				.startDate(sevenDaysLater0am())
-				.endDate(eightDaysLater0am())
-				.description("Discuss Revenue Stream")
-				.allDay(true)
-				.build();
-		eventModel.addEvent(scheduleEventAllDay);
-	}
-	
-	public LocalDateTime getRandomDateTime(LocalDateTime base) {
-		LocalDateTime dateTime = base.withMinute(0).withSecond(0).withNano(0);
-		return dateTime.plusDays(((int) (Math.random()*30)));
-	}
-	
+        DefaultScheduleEvent<Object> scheduleEventAllDay = DefaultScheduleEvent.builder()
+                .title("Team Meeting")
+                .startDate(sevenDaysLater0am())
+                .endDate(eightDaysLater0am())
+                .description("Discuss Revenue Stream")
+                .allDay(true)
+                .build();
+        eventModel.addEvent(scheduleEventAllDay);
+    }
 
-	public ScheduleModel getEventModel() {
-		return eventModel;
-	}
+    public LocalDateTime getRandomDateTime(LocalDateTime base) {
+        LocalDateTime dateTime = base.withMinute(0).withSecond(0).withNano(0);
+        return dateTime.plusDays(((int) (Math.random() * 30)));
+    }
 
-	private LocalDateTime previousDay8Pm() {
-    	return LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime previousDay11Pm() {
-		return LocalDateTime.now().minusDays(1).withHour(23).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime today1Pm() {
-		return LocalDateTime.now().withHour(13).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime theDayAfter3Pm() {
-		return LocalDateTime.now().plusDays(1).withHour(15).withMinute(0).withSecond(0).withNano(0);
-	}
+    public ScheduleModel getEventModel() {
+        return eventModel;
+    }
 
-	private LocalDateTime today6Pm() {
-		return LocalDateTime.now().withHour(18).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime nextDay9Am() {
-		return LocalDateTime.now().plusDays(1).withHour(9).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime nextDay11Am() {
-		return LocalDateTime.now().plusDays(1).withHour(11).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	private LocalDateTime fourDaysLater3pm() {
-		return LocalDateTime.now().plusDays(4).withHour(15).withMinute(0).withSecond(0).withNano(0);
-	}
+    private LocalDateTime previousDay8Pm() {
+        return LocalDateTime.now().minusDays(1).withHour(20).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	private LocalDateTime sevenDaysLater0am() {
-		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
-	}
+    private LocalDateTime previousDay11Pm() {
+        return LocalDateTime.now().minusDays(1).withHour(23).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	private LocalDateTime eightDaysLater0am() {
-		return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
-	}
-	
-	public LocalDate getInitialDate() {
-		return LocalDate.now().plusDays(1);
-	}
+    private LocalDateTime today1Pm() {
+        return LocalDateTime.now().withHour(13).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public ScheduleEvent<Object> getEvent() {
-		return event;
-	}
+    private LocalDateTime theDayAfter3Pm() {
+        return LocalDateTime.now().plusDays(1).withHour(15).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public void setEvent(ScheduleEvent<Object> event) {
-		this.event = event;
-	}
-	
-	public void addEvent() {
-    	if (event.isAllDay()) {
-    		//see https://github.com/primefaces/primefaces/issues/1164
-    		if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
-				event.setEndDate(event.getEndDate().plusDays(1));
-			}
-		}
+    private LocalDateTime today6Pm() {
+        return LocalDateTime.now().withHour(18).withMinute(0).withSecond(0).withNano(0);
+    }
 
-		if(event.getId() == null)
-			eventModel.addEvent(event);
-		else
-			eventModel.updateEvent(event);
-		
-		event = new DefaultScheduleEvent<>();
-	}
-	
-	public void onEventSelect(SelectEvent<ScheduleEvent<Object>> selectEvent) {
-		event = selectEvent.getObject();
-	}
-	
-	public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
-		event = DefaultScheduleEvent.builder().startDate(selectEvent.getObject()).endDate(selectEvent.getObject().plusHours(1)).build();
-	}
-	
-	public void onEventMove(ScheduleEntryMoveEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Delta:" + event.getDeltaAsDuration());
-		
-		addMessage(message);
-	}
-	
-	public void onEventResize(ScheduleEntryResizeEvent event) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Start-Delta:" + event.getDeltaStartAsDuration() + ", End-Delta: " + event.getDeltaEndAsDuration());
-		
-		addMessage(message);
-	}
-	
-	private void addMessage(FacesMessage message) {
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
+    private LocalDateTime nextDay9Am() {
+        return LocalDateTime.now().plusDays(1).withHour(9).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public boolean isShowWeekends() {
-		return showWeekends;
-	}
+    private LocalDateTime nextDay11Am() {
+        return LocalDateTime.now().plusDays(1).withHour(11).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public void setShowWeekends(boolean showWeekends) {
-		this.showWeekends = showWeekends;
-	}
+    private LocalDateTime fourDaysLater3pm() {
+        return LocalDateTime.now().plusDays(4).withHour(15).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public boolean isTooltip() {
-		return tooltip;
-	}
+    private LocalDateTime sevenDaysLater0am() {
+        return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public void setTooltip(boolean tooltip) {
-		this.tooltip = tooltip;
-	}
+    private LocalDateTime eightDaysLater0am() {
+        return LocalDateTime.now().plusDays(7).withHour(0).withMinute(0).withSecond(0).withNano(0);
+    }
 
-	public boolean isAllDaySlot() {
-		return allDaySlot;
-	}
+    public LocalDate getInitialDate() {
+        return LocalDate.now().plusDays(1);
+    }
 
-	public void setAllDaySlot(boolean allDaySlot) {
-		this.allDaySlot = allDaySlot;
-	}
+    public ScheduleEvent<Object> getEvent() {
+        return event;
+    }
 
-	public String getTimeFormat() {
-		return timeFormat;
-	}
+    public void setEvent(ScheduleEvent<Object> event) {
+        this.event = event;
+    }
 
-	public void setTimeFormat(String timeFormat) {
-		this.timeFormat = timeFormat;
-	}
+    public void addEvent() {
+        if (event.isAllDay()) {
+            //see https://github.com/primefaces/primefaces/issues/1164
+            if (event.getStartDate().toLocalDate().equals(event.getEndDate().toLocalDate())) {
+                event.setEndDate(event.getEndDate().plusDays(1));
+            }
+        }
 
-	public String getSlotDuration() {
-		return slotDuration;
-	}
+        if (event.getId() == null) {
+            eventModel.addEvent(event);
+        } else {
+            eventModel.updateEvent(event);
+        }
 
-	public void setSlotDuration(String slotDuration) {
-		this.slotDuration = slotDuration;
-	}
+        event = new DefaultScheduleEvent<>();
+    }
 
-	public String getSlotLabelInterval() {
-		return slotLabelInterval;
-	}
+    public void onEventSelect(SelectEvent<ScheduleEvent<Object>> selectEvent) {
+        event = selectEvent.getObject();
+    }
 
-	public void setSlotLabelInterval(String slotLabelInterval) {
-		this.slotLabelInterval = slotLabelInterval;
-	}
+    public void onDateSelect(SelectEvent<LocalDateTime> selectEvent) {
+        event = DefaultScheduleEvent.builder().startDate(selectEvent.getObject()).endDate(selectEvent.getObject().plusHours(1)).build();
+    }
 
-	public String getScrollTime() {
-		return scrollTime;
-	}
+    public void onEventMove(ScheduleEntryMoveEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Delta:" + event.getDeltaAsDuration());
 
-	public void setScrollTime(String scrollTime) {
-		this.scrollTime = scrollTime;
-	}
+        addMessage(message);
+    }
 
-	public String getMinTime() {
-		return minTime;
-	}
+    public void onEventResize(ScheduleEntryResizeEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Start-Delta:" + event.getDeltaStartAsDuration() + ", End-Delta: " + event.getDeltaEndAsDuration());
 
-	public void setMinTime(String minTime) {
-		this.minTime = minTime;
-	}
+        addMessage(message);
+    }
 
-	public String getMaxTime() {
-		return maxTime;
-	}
+    private void addMessage(FacesMessage message) {
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 
-	public void setMaxTime(String maxTime) {
-		this.maxTime = maxTime;
-	}
+    public boolean isShowWeekends() {
+        return showWeekends;
+    }
 
-	public String getLocale() {
-		return locale;
-	}
+    public void setShowWeekends(boolean showWeekends) {
+        this.showWeekends = showWeekends;
+    }
 
-	public void setLocale(String locale) {
-		this.locale = locale;
-	}
+    public boolean isTooltip() {
+        return tooltip;
+    }
 
-	public String getTimeZone() {
-		return timeZone;
-	}
+    public void setTooltip(boolean tooltip) {
+        this.tooltip = tooltip;
+    }
 
-	public void setTimeZone(String timeZone) {
-		this.timeZone = timeZone;
-	}
+    public boolean isAllDaySlot() {
+        return allDaySlot;
+    }
 
-	public String getClientTimeZone() {
-		return clientTimeZone;
-	}
+    public void setAllDaySlot(boolean allDaySlot) {
+        this.allDaySlot = allDaySlot;
+    }
 
-	public void setClientTimeZone(String clientTimeZone) {
-		this.clientTimeZone = clientTimeZone;
-	}
+    public String getTimeFormat() {
+        return timeFormat;
+    }
 
-	public String getColumnHeaderFormat() {
-		return columnHeaderFormat;
-	}
+    public void setTimeFormat(String timeFormat) {
+        this.timeFormat = timeFormat;
+    }
 
-	public void setColumnHeaderFormat(String columnHeaderFormat) {
-		this.columnHeaderFormat = columnHeaderFormat;
-	}
+    public String getSlotDuration() {
+        return slotDuration;
+    }
+
+    public void setSlotDuration(String slotDuration) {
+        this.slotDuration = slotDuration;
+    }
+
+    public String getSlotLabelInterval() {
+        return slotLabelInterval;
+    }
+
+    public void setSlotLabelInterval(String slotLabelInterval) {
+        this.slotLabelInterval = slotLabelInterval;
+    }
+
+    public String getScrollTime() {
+        return scrollTime;
+    }
+
+    public void setScrollTime(String scrollTime) {
+        this.scrollTime = scrollTime;
+    }
+
+    public String getMinTime() {
+        return minTime;
+    }
+
+    public void setMinTime(String minTime) {
+        this.minTime = minTime;
+    }
+
+    public String getMaxTime() {
+        return maxTime;
+    }
+
+    public void setMaxTime(String maxTime) {
+        this.maxTime = maxTime;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public String getClientTimeZone() {
+        return clientTimeZone;
+    }
+
+    public void setClientTimeZone(String clientTimeZone) {
+        this.clientTimeZone = clientTimeZone;
+    }
+
+    public String getColumnHeaderFormat() {
+        return columnHeaderFormat;
+    }
+
+    public void setColumnHeaderFormat(String columnHeaderFormat) {
+        this.columnHeaderFormat = columnHeaderFormat;
+    }
 }

@@ -30,14 +30,14 @@ import org.primefaces.diamond.domain.OrderStatus;
 @Named
 @ApplicationScoped
 public class OrderService {
-    
+
     private final static String[] names;
 
     static {
-        names = new String[]{"James","David","Jeanfrancois","Ivar","Tony","Adams","Claire","Costa","Juan","Maria","Jennifer","Stacey","Leja","Morrow",
-                        "Arvin","Darci","Izzy","Lionel","Clifford","Emily","Kadeem","Mujtaba","Aika","Mayumi","Misaki","Silvio","Nicolas","Antonio",
-                        "Deepesh","Aditya","Aruna","Jones","Julie","Smith","Johnson","Francesco","Salvatore","Kaitlin","Faith","Maisha","Jefferson",
-                        "Leon","Rodrigues","Alejandro","Munro","Cody","Chavez","Sinclair","Isabel","Octavia","Murillo","Greenwood","Wickens","Ashley"};
+        names = new String[]{"James", "David", "Jeanfrancois", "Ivar", "Tony", "Adams", "Claire", "Costa", "Juan", "Maria", "Jennifer", "Stacey", "Leja", "Morrow",
+            "Arvin", "Darci", "Izzy", "Lionel", "Clifford", "Emily", "Kadeem", "Mujtaba", "Aika", "Mayumi", "Misaki", "Silvio", "Nicolas", "Antonio",
+            "Deepesh", "Aditya", "Aruna", "Jones", "Julie", "Smith", "Johnson", "Francesco", "Salvatore", "Kaitlin", "Faith", "Maisha", "Jefferson",
+            "Leon", "Rodrigues", "Alejandro", "Munro", "Cody", "Chavez", "Sinclair", "Isabel", "Octavia", "Murillo", "Greenwood", "Wickens", "Ashley"};
     }
 
     public List<Order> getOrders(int number) {
@@ -51,7 +51,8 @@ public class OrderService {
     private String getCustomerName() {
         String firstName = this.getName();
         String lastName;
-        while((lastName = this.getName()).equals(firstName)) {}
+        while ((lastName = this.getName()).equals(firstName)) {
+        }
 
         return firstName + " " + lastName;
     }

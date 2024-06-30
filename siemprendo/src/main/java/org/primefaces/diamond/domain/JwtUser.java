@@ -3,64 +3,64 @@ package org.primefaces.diamond.domain;
 import com.google.gson.annotations.SerializedName;
 
 public class JwtUser {
-	
-	@SerializedName("id")
-	private Integer id;
-	
-	@SerializedName("firstname")
-	private String firstname;
-	
-	@SerializedName("lastname")
-	private String lastname;
-	
-	@SerializedName("email")
-	private String email;
-	
-	@SerializedName("password")
-	private String password;
 
-	public JwtUser() {
-		super();
-	}
+    @SerializedName("id")
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    @SerializedName("firstname")
+    private String firstname;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @SerializedName("lastname")
+    private String lastname;
 
-	public String getFirstname() {
-		return firstname;
-	}
+    @SerializedName("email")
+    private String email;
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+    @SerializedName("password")
+    private String password;
 
-	public String getLastname() {
-		return lastname;
-	}
+    public JwtUser() {
+        super();
+    }
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getFirstname() {
+        return firstname;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }

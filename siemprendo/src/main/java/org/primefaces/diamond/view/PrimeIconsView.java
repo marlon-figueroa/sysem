@@ -33,8 +33,8 @@ import java.util.logging.Logger;
 @Named
 @ApplicationScoped
 public class PrimeIconsView implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
     private List<Icon> icons;
 
@@ -46,7 +46,7 @@ public class PrimeIconsView implements Serializable {
         try {
             JSONObject json = readJsonFromUrl(url);
             JSONArray iconsArray = json.getJSONArray("icons");
-            for(int i = 0; i < iconsArray.length(); i++) {
+            for (int i = 0; i < iconsArray.length(); i++) {
                 JSONObject properties = iconsArray.optJSONObject(i).getJSONObject("properties");
                 icons.add(new Icon(properties.getString("name"), properties.getInt("code")));
             }

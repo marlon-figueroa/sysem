@@ -15,37 +15,37 @@ import com.google.gson.JsonParser;
 
 public class HttpClientService {
 
-	private static final Logger LOGGER = Logger.getLogger(HttpClientService.class);
-	public static final String URL_BASE = "http://localhost:8081";
-	public static final String HOST_CLIENT = "localhost";
-	public static final int PORT_CLIENT = 8081;
+    private static final Logger LOGGER = Logger.getLogger(HttpClientService.class);
+    public static final String URL_BASE = "http://localhost:8081";
+    public static final String HOST_CLIENT = "localhost";
+    public static final int PORT_CLIENT = 8081;
 
-	public String getFormatterUrl(ServiceApi uri) {
-		return MessageFormat.format("{0}{1}", URL_BASE, uri.getUri());
-	}
+    public String getFormatterUrl(ServiceApi uri) {
+        return MessageFormat.format("{0}{1}", URL_BASE, uri.getUri());
+    }
 
-	public HttpClient getClient() {
-		return HttpClient.newHttpClient();
-	}
-	
-	public CloseableHttpClient getHttpclient() {
-		return HttpClients.createDefault(); 
-	}
+    public HttpClient getClient() {
+        return HttpClient.newHttpClient();
+    }
 
-	public String toJson(Object data) {
-		Gson gson = new Gson();
-		return gson.toJson(data);
-	}
+    public CloseableHttpClient getHttpclient() {
+        return HttpClients.createDefault();
+    }
 
-	public Object fromJson(String json, Class<?> clazz) {
-		return new Gson().fromJson(json, clazz);
-	}
+    public String toJson(Object data) {
+        Gson gson = new Gson();
+        return gson.toJson(data);
+    }
 
-	public void printJson(String uglyJson) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonElement jsonElement = JsonParser.parseString(uglyJson);
-		String prettyJson = gson.toJson(jsonElement);
-		LOGGER.info(prettyJson);
-	}
+    public Object fromJson(String json, Class<?> clazz) {
+        return new Gson().fromJson(json, clazz);
+    }
+
+    public void printJson(String uglyJson) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        JsonElement jsonElement = JsonParser.parseString(uglyJson);
+        String prettyJson = gson.toJson(jsonElement);
+        LOGGER.info(prettyJson);
+    }
 
 }

@@ -38,7 +38,7 @@ public class DataTableDemoView implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-	private List<Customer> customers1;
+    private List<Customer> customers1;
 
     private List<Customer> customers2;
 
