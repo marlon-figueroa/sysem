@@ -1,14 +1,20 @@
 package org.primefaces.diamond.service.util;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.security.MessageDigest;
+import org.apache.log4j.Logger;
 
 public class CryptoUtils {
 
+    private static final Logger LOGGER = Logger.getLogger(CryptoUtils.class);
+
     public static void main(String[] arg) {
+        // 908CCB1065759EA5CA71B8A273DB7AAE24A701B07877E79C23A177F6B422FB77
+        // 908CCB1065759EA5CA71B8A273DB7AAE24A701B07877E79C23A177F6B422FB77
         try {
             // get input from the keyboard
             Reader r = new BufferedReader(new InputStreamReader(System.in));
@@ -30,8 +36,8 @@ public class CryptoUtils {
                     System.out.println("Wrong, try again...!");
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            LOGGER.error(e);
         }
     }
 
@@ -60,15 +66,14 @@ public class CryptoUtils {
     }
 
     private static byte[] computeHash(String x, String algorithm) throws Exception {
-        MessageDigest d = null;
-        d = MessageDigest.getInstance(algorithm);
+        MessageDigest d = MessageDigest.getInstance(algorithm);
         d.reset();
         d.update(x.getBytes());
         return d.digest();
     }
 
     private static String byteArrayToHexString(byte[] b) {
-        StringBuffer sb = new StringBuffer(b.length * 2);
+        StringBuilder sb = new StringBuilder(b.length * 2);
         for (int i = 0; i < b.length; i++) {
             int v = b[i] & 0xff;
             if (v < 16) {

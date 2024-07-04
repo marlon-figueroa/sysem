@@ -11,9 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.diamond.domain.AuthenticationRequest;
-import org.primefaces.diamond.domain.AuthenticationResponse;
-import org.primefaces.diamond.domain.JwtUser;
-import org.primefaces.diamond.service.AuthService;
+import org.primefaces.diamond.domain.Usuario;
+import org.primefaces.diamond.service.UsuarioService;
 import org.primefaces.diamond.service.util.SessionUtil;
 
 @Named
@@ -26,9 +25,9 @@ public class LoginView implements Serializable {
     private static final String MSJ_TITULO_INCORRECTO = "Usario y password incorrectos";
     private static final String MSJ_INCORRECTO = "Por favor ingrese usuario y password correctos";
     private AuthenticationRequest authReq;
-
+    
     @Inject
-    private AuthService authService;
+    private UsuarioService usuarioService;
 
     @PostConstruct
     public void init() {
@@ -40,13 +39,10 @@ public class LoginView implements Serializable {
         FacesMessage msg = null;
         String route = "login?faces-redirect=true";
         try {
-            AuthenticationResponse rsp = authService.authenticate(authReq);
-            if (rsp != null) {
-
-                SessionUtil.getSession().setAttribute("token", rsp.getAccessToken());
+            boolean isAuthValid = usuarioService.autenticar(authReq);
+            if (isAuthValid) {
                 SessionUtil.getSession().setAttribute("username", authReq.getEmail());
-
-                JwtUser usuario = authService.getUser(authReq.getEmail());
+                Usuario usuario = usuarioService.getByUsuario(authReq.getEmail());
                 SessionUtil.getSession().setAttribute("userId", usuario.getId());
                 SessionUtil.getSession().setAttribute("usrLoggin", usuario);
                 msg = new FacesMessage(FacesMessage.SEVERITY_INFO, MSJ_TITULO_CORRECTO, authReq.getEmail());
