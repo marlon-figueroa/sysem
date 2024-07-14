@@ -58,6 +58,8 @@ public class Usuario implements Serializable {
     private Date fechaIngreso;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.EAGER)
     private List<UsuarioRol> usuarioRolList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.LAZY)
+    private List<Empleado> empleadoList;
 
     public Usuario() {
     }
@@ -151,6 +153,14 @@ public class Usuario implements Serializable {
         return true;
     }
 
+    public List<Empleado> getEmpleadoList() {
+        return empleadoList;
+    }
+
+    public void setEmpleadoList(List<Empleado> empleadoList) {
+        this.empleadoList = empleadoList;
+    }
+    
     @Override
     public String toString() {
         return "org.primefaces.diamond.domain.Usuario[ id=" + id + " ]";

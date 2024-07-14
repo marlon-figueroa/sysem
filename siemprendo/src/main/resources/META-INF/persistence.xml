@@ -7,6 +7,15 @@
     <class>org.primefaces.diamond.domain.UsuarioRol</class>
     <class>org.primefaces.diamond.domain.Rol</class>
     <class>org.primefaces.diamond.domain.PermisoRol</class>
+    <class>org.primefaces.diamond.domain.Marca</class>
+    <class>org.primefaces.diamond.domain.DetalleVenta</class>
+    <class>org.primefaces.diamond.domain.Categoria</class>
+    <class>org.primefaces.diamond.domain.Producto</class>
+    <class>org.primefaces.diamond.domain.Medida</class>
+    <class>org.primefaces.diamond.domain.Empleado</class>
+    <class>org.primefaces.diamond.domain.Presentacion</class>
+    <class>org.primefaces.diamond.domain.Venta</class>
+    <class>org.primefaces.diamond.domain.CatalogoProducto</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/facinvendev?serverTimezone=UTC"/>
