@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package org.primefaces.diamond.domain;
+package org.primefaces.diamond.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -24,12 +20,13 @@ import javax.persistence.Table;
  * @author marlo
  */
 @Entity
-@Table(name = "marca")
+@Table(name = "rol")
 @NamedQueries({
-    @NamedQuery(name = "Marca.findAll", query = "SELECT m FROM Marca m"),
-    @NamedQuery(name = "Marca.findById", query = "SELECT m FROM Marca m WHERE m.id = :id"),
-    @NamedQuery(name = "Marca.findByNombre", query = "SELECT m FROM Marca m WHERE m.nombre = :nombre")})
-public class Marca implements Serializable {
+    @NamedQuery(name = "Rol.findAll", query = "SELECT r FROM Rol r"),
+    @NamedQuery(name = "Rol.findById", query = "SELECT r FROM Rol r WHERE r.id = :id"),
+    @NamedQuery(name = "Rol.findByNombre", query = "SELECT r FROM Rol r WHERE r.nombre = :nombre"),
+    @NamedQuery(name = "Rol.findByEstado", query = "SELECT r FROM Rol r WHERE r.estado = :estado")})
+public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,19 +37,25 @@ public class Marca implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "marcaId", fetch = FetchType.LAZY)
-    private List<Producto> productoList;
+    @Basic(optional = false)
+    @Column(name = "estado")
+    private String estado;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolId", fetch = FetchType.LAZY)
+    private List<PermisoRol> permisoRolList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolId", fetch = FetchType.LAZY)
+    private List<UsuarioRol> usuarioRolList;
 
-    public Marca() {
+    public Rol() {
     }
 
-    public Marca(Integer id) {
+    public Rol(Integer id) {
         this.id = id;
     }
 
-    public Marca(Integer id, String nombre) {
+    public Rol(Integer id, String nombre, String estado) {
         this.id = id;
         this.nombre = nombre;
+        this.estado = estado;
     }
 
     public Integer getId() {
@@ -71,12 +74,28 @@ public class Marca implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Producto> getProductoList() {
-        return productoList;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setProductoList(List<Producto> productoList) {
-        this.productoList = productoList;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public List<PermisoRol> getPermisoRolList() {
+        return permisoRolList;
+    }
+
+    public void setPermisoRolList(List<PermisoRol> permisoRolList) {
+        this.permisoRolList = permisoRolList;
+    }
+
+    public List<UsuarioRol> getUsuarioRolList() {
+        return usuarioRolList;
+    }
+
+    public void setUsuarioRolList(List<UsuarioRol> usuarioRolList) {
+        this.usuarioRolList = usuarioRolList;
     }
 
     @Override
@@ -89,10 +108,10 @@ public class Marca implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Marca)) {
+        if (!(object instanceof Rol)) {
             return false;
         }
-        Marca other = (Marca) object;
+        Rol other = (Rol) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -101,7 +120,7 @@ public class Marca implements Serializable {
 
     @Override
     public String toString() {
-        return "org.primefaces.diamond.domain.Marca[ id=" + id + " ]";
+        return "org.primefaces.diamond.domain.Rol[ id=" + id + " ]";
     }
     
 }

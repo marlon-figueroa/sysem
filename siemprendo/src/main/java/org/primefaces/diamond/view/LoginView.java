@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.diamond.domain.AuthenticationRequest;
-import org.primefaces.diamond.domain.Usuario;
+import org.primefaces.diamond.entity.Usuario;
 import org.primefaces.diamond.service.UsuarioService;
 import org.primefaces.diamond.service.util.SessionUtil;
 

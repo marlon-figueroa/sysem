@@ -1,4 +1,4 @@
-package org.primefaces.diamond.domain;
+package org.primefaces.diamond.entity;
 
 import java.io.Serializable;
 import java.util.List;

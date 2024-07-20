@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import org.apache.log4j.Logger;
 import org.primefaces.diamond.domain.AuthenticationRequest;
-import org.primefaces.diamond.domain.Usuario;
+import org.primefaces.diamond.entity.Usuario;
 import org.primefaces.diamond.service.util.CryptoUtils;
 import org.primefaces.diamond.service.util.JPAUtil;
 

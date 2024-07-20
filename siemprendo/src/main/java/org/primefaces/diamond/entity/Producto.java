@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.primefaces.diamond.domain;
+package org.primefaces.diamond.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,6 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.primefaces.diamond.domain.CatalogoProducto;
 
 /**
  *

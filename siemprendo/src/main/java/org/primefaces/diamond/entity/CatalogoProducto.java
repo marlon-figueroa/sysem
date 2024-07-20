@@ -4,6 +4,7 @@
  */
 package org.primefaces.diamond.domain;
 
+import org.primefaces.diamond.entity.Producto;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;

@@ -1,13 +1,12 @@
 package org.primefaces.diamond.service.util;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import org.primefaces.diamond.domain.Usuario;
+import org.primefaces.diamond.entity.Usuario;
 
 public class JPAUtil {
 
@@ -29,9 +28,8 @@ public class JPAUtil {
 
     public static void main(String[] args) {
         EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
-        List<Usuario> lista = new ArrayList<>();
         Query q = entity.createQuery("SELECT c FROM Usuario c");
-        lista = q.getResultList();
+        List<Usuario> lista = q.getResultList();
         System.out.println("Lista: " + Arrays.toString(lista.toArray()));
     }
 }

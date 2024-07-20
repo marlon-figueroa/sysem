@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.primefaces.diamond.domain;
+package org.primefaces.diamond.entity;
 
+import org.primefaces.diamond.entity.Venta;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

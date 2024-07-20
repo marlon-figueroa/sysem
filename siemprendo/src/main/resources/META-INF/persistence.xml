@@ -2,20 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="PU_SYSEM" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>org.primefaces.diamond.domain.Permiso</class>
-    <class>org.primefaces.diamond.domain.Usuario</class>
-    <class>org.primefaces.diamond.domain.UsuarioRol</class>
-    <class>org.primefaces.diamond.domain.Rol</class>
-    <class>org.primefaces.diamond.domain.PermisoRol</class>
-    <class>org.primefaces.diamond.domain.Marca</class>
-    <class>org.primefaces.diamond.domain.DetalleVenta</class>
     <class>org.primefaces.diamond.domain.Categoria</class>
-    <class>org.primefaces.diamond.domain.Producto</class>
-    <class>org.primefaces.diamond.domain.Medida</class>
-    <class>org.primefaces.diamond.domain.Empleado</class>
-    <class>org.primefaces.diamond.domain.Presentacion</class>
-    <class>org.primefaces.diamond.domain.Venta</class>
     <class>org.primefaces.diamond.domain.CatalogoProducto</class>
+    <class>org.primefaces.diamond.entity.Medida</class>
+    <class>org.primefaces.diamond.entity.Producto</class>
+    <class>org.primefaces.diamond.entity.Marca</class>
+    <class>org.primefaces.diamond.entity.Presentacion</class>
+    <class>org.primefaces.diamond.entity.Venta</class>
+    <class>org.primefaces.diamond.entity.DetalleVenta</class>
+    <class>org.primefaces.diamond.entity.UsuarioRol</class>
+    <class>org.primefaces.diamond.entity.PermisoRol</class>
+    <class>org.primefaces.diamond.entity.Empleado</class>
+    <class>org.primefaces.diamond.entity.Usuario</class>
+    <class>org.primefaces.diamond.entity.Rol</class>
+    <class>org.primefaces.diamond.entity.Permiso</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/facinvendev?serverTimezone=UTC"/>
