@@ -1,9 +1,9 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
 
-    <ui:define name="title">Dashboard</ui:define>
+    <ui:define name="title">Tablero</ui:define>
 
-    <ui:param name="viewname" value="DASHBOARD" />
+    <ui:param name="viewname" value="TRABLERO" />
     
     <ui:define name="head">
         <h:outputScript name="js/chart.js" library="demo" />
@@ -85,15 +85,15 @@
                             <span class="overview-icon">
                                 <i class="pi pi-shopping-cart"></i>
                             </span>
-                            <span class="overview-title">Orders</span>
+                            <span class="overview-title">Ordenes</span>
                             <div class="grid overview-detail">
                                 <div class="col-6">
                                     <div class="overview-number">640</div>
-                                    <div class="overview-subtext">Pending</div>
+                                    <div class="overview-subtext">Pendientes</div>
                                 </div>
                                 <div class="col-6">
                                     <div class="overview-number">1420</div>
-                                    <div class="overview-subtext">Completed</div>
+                                    <div class="overview-subtext">Completadas</div>
                                 </div>
                             </div>
                         </div>
@@ -103,15 +103,15 @@
                             <span class="overview-icon">
                                 <i class="pi pi-dollar"></i>
                             </span>
-                            <span class="overview-title">Revenue</span>
+                            <span class="overview-title">Ganancias</span>
                             <div class="grid overview-detail">
                                 <div class="col-6">
                                     <div class="overview-number">$2,100</div>
-                                    <div class="overview-subtext">Expenses</div>
+                                    <div class="overview-subtext">Gastos</div>
                                 </div>
                                 <div class="col-6">
                                     <div class="overview-number">$9,640</div>
-                                    <div class="overview-subtext">Income</div>
+                                    <div class="overview-subtext">Ingresos</div>
                                 </div>
                             </div>
                         </div>
@@ -121,15 +121,15 @@
                             <span class="overview-icon">
                                 <i class="pi pi-users"></i>
                             </span>
-                            <span class="overview-title">Customers</span>
+                            <span class="overview-title">Clientes</span>
                             <div class="grid overview-detail">
                                 <div class="col-6">
                                     <div class="overview-number">8272</div>
-                                    <div class="overview-subtext">Active</div>
+                                    <div class="overview-subtext">Activos</div>
                                 </div>
                                 <div class="col-6">
                                     <div class="overview-number">25402</div>
-                                    <div class="overview-subtext">Registered</div>
+                                    <div class="overview-subtext">Registrados</div>
                                 </div>
                             </div>
                         </div>
@@ -139,15 +139,15 @@
                             <span class="overview-icon">
                                 <i class="pi pi-comment"></i>
                             </span>
-                            <span class="overview-title">Comments</span>
+                            <span class="overview-title">Comentarios</span>
                             <div class="grid overview-detail">
                                 <div class="col-6">
                                     <div class="overview-number">12</div>
-                                    <div class="overview-subtext">New</div>
+                                    <div class="overview-subtext">Nuevos</div>
                                 </div>
                                 <div class="col-6">
                                     <div class="overview-number">85</div>
-                                    <div class="overview-subtext">Responded</div>
+                                    <div class="overview-subtext">Respondidos</div>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                     <div class="col-12 xl:col-6">
                         <div class="card no-gutter">
                             <div class="card-header">
-                                <h4>Orders</h4>
+                                <h4>Ordenes</h4>
                                 <p:commandButton id="orders-button" type="button" icon="pi pi-search" styleClass="ui-button-secondary ui-button-flat" />
                                 <p:menu trigger="orders-button" overlay="true" my="right top" at="right bottom">
                                     <p:submenu label="Shipments">

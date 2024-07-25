@@ -10,24 +10,27 @@
             <p:graphicImage id="app-logo" styleClass="logo-image"
                             name="images/#{guestPreferences.logoColor eq 'white' ? 'logo-white.svg' : 'logo-dark.svg'}"
                             library="diamond-layout"/>
-            <span class="app-name">DIAMOND</span>
+            <span class="app-name">SYSEM</span>
         </h:link>
 
         <div class="layout-menu-container">
             <h:form id="sidebar-form">
                 <d:menu widgetVar="diamondMenuWidget">
                     <p:submenu id="m_homepage" label="Favorites" icon="pi pi-fw pi-home">
-                        <p:menuitem id="m_dashboard" value="Dashboard" icon="pi pi-fw pi-home" outcome="/dashboard"/>
+                        <p:menuitem id="m_dashboard" value="Tablero" icon="pi pi-fw pi-home" outcome="/dashboard"/>
+                    </p:submenu>
+                    <p:separator/>
+                    <p:submenu id="m_configuraciones" label="Configuraciones" icon="pi pi-fw pi-cog">
+                        <p:menuitem id="m_categoria" value="Categorias" icon="pi pi-fw pi-tag" outcome="/categoria/list"/>
+                        <p:menuitem id="m_presentacion" value="Presentaciones" icon="pi pi-fw pi-images" target="_blank" url="https://www.primefaces.org/primeblocks-jsf"/>
                     </p:submenu>
                     <p:separator/>
                     <p:submenu id="m_components" label="UI Kit" icon="pi pi-fw pi-star-fill">
                         <p:menuitem id="m_formlayout" value="Form Layout" icon="pi pi-fw pi-id-card" outcome="/formlayout"/>
                         <p:menuitem id="m_input" value="Input" icon="pi pi-fw pi-check-square" outcome="/input"/>
                         <p:menuitem id="m_floatlabel" value="Float Label" icon="pi pi-fw pi-bookmark" outcome="/floatlabel"/>
-                        <p:menuitem id="m_invalidstate" value="Invalid State" icon="pi pi-fw pi-exclamation-circle"
-                                    outcome="/invalidstate"/>
-                        <p:menuitem id="m_button" value="Button" icon="pi pi-fw pi-mobile" outcome="/button"
-                                    styleClass="rotated-icon"/>
+                        <p:menuitem id="m_invalidstate" value="Invalid State" icon="pi pi-fw pi-exclamation-circle" outcome="/invalidstate"/>
+                        <p:menuitem id="m_button" value="Button" icon="pi pi-fw pi-mobile" outcome="/button" styleClass="rotated-icon"/>
                         <p:menuitem id="m_table" value="Table" icon="pi pi-fw pi-table" outcome="/table"/>
                         <p:menuitem id="m_list" value="List" icon="pi pi-fw pi-list" outcome="/list"/>
                         <p:menuitem id="m_tree" value="Tree" icon="pi pi-fw pi-share-alt" outcome="/tree"/>
@@ -61,8 +64,7 @@
                         <p:menuitem id="m_invoice" value="Invoice" icon="pi pi-fw pi-dollar" outcome="/invoice"/>
                         <p:menuitem id="m_help" value="Help" icon="pi pi-fw pi-question-circle" outcome="/help"/>
                         <p:menuitem id="m_error" value="Error" icon="pi pi-fw pi-times-circle" outcome="/error"/>
-                        <p:menuitem id="m_notfound" value="Not Found" icon="pi pi-fw pi-exclamation-circle"
-                                    outcome="/notfound"/>
+                        <p:menuitem id="m_notfound" value="Not Found" icon="pi pi-fw pi-exclamation-circle" outcome="/notfound"/>
                         <p:menuitem id="m_access" value="Access Denied" icon="pi pi-fw pi-lock" outcome="/access"/>
                         <p:menuitem id="m_empty" value="Empty" icon="pi pi-fw pi-circle-off" outcome="/empty"/>
                     </p:submenu>
@@ -87,13 +89,6 @@
                                 <p:menuitem id="m_lnk221" value="Link 2.2.1" icon="pi pi-fw pi-align-left" url="#"/>
                             </p:submenu>
                         </p:submenu>
-                    </p:submenu>
-                    <p:separator/>
-                    <p:submenu id="m_getstarted" label="Start" icon="pi pi-fw pi-download">
-                        <p:menuitem id="m_buy" value="Buy Now" icon="pi pi-fw pi-shopping-cart"
-                                    url="https://www.primefaces.org/store"/>
-                        <p:menuitem id="m_doc" value="Documentation" icon="pi pi-fw pi-info-circle"
-                                    outcome="/documentation"/>
                     </p:submenu>
                 </d:menu>
             </h:form>

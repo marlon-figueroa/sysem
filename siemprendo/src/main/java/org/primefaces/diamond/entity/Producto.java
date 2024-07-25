@@ -20,7 +20,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.primefaces.diamond.domain.CatalogoProducto;
+import org.primefaces.diamond.entity.CatalogoProducto;
 
 /**
  *
