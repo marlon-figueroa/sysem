@@ -1,6 +1,7 @@
 package org.primefaces.diamond.service;
 
 import org.apache.log4j.Logger;
+import org.primefaces.diamond.dao.CategorioaDAO;
 import org.primefaces.diamond.entity.Categoria;
 
 import javax.enterprise.context.ApplicationScoped;
