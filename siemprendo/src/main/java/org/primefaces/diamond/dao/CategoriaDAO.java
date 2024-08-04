@@ -7,9 +7,9 @@ import javax.inject.Named;
 
 @Named
 @ApplicationScoped
-public class CategorioaDAO extends GenericDAO<Categoria> {
+public class CategoriaDAO extends GenericDAO<Categoria> {
 
-    public CategorioaDAO() {
+    public CategoriaDAO() {
         super(Categoria.class);
     }
 }
