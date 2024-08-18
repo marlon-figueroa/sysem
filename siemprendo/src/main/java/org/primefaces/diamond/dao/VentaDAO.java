@@ -11,9 +11,9 @@ import org.primefaces.diamond.entity.Venta;
  * @author marlo
  */
 public class VentaDAO extends GenericDAO<Venta> {
-    
+
     public VentaDAO() {
         super(Venta.class);
     }
-    
+
 }

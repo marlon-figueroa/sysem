@@ -2,7 +2,7 @@ package org.primefaces.diamond.service;
 
 import java.util.List;
 
-public interface IService<T> {
+public interface IService<T, S> {
 
     boolean create(T entity);
 
@@ -12,6 +12,6 @@ public interface IService<T> {
 
     List<T> findAll();
 
-    T findById(int id);
+    T findById(S id);
 
 }

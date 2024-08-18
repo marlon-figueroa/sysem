@@ -12,7 +12,7 @@ import org.primefaces.diamond.dao.CategoriaDAO;
 
 @Named
 @ApplicationScoped
-public class CategoriaService implements IService<Categoria> {
+public class CategoriaService implements IService<Categoria, Integer> {
 
     private static final Logger LOGGER = Logger.getLogger(CategoriaService.class);
 
@@ -39,13 +39,13 @@ public class CategoriaService implements IService<Categoria> {
 
     @Override
     public List<Categoria> findAll() {
-        LOGGER.info("Operacion de listar categorias");
+        LOGGER.info("Operacion de listar registros");
         return this.dao.findAll();
     }
 
     @Override
-    public Categoria findById(int id) {
-        LOGGER.info(MessageFormat.format("Operacion de obtener categoria por ID {0}", id));
+    public Categoria findById(Integer id) {
+        LOGGER.info(MessageFormat.format("Operacion de obtener el registro por ID {0}", id));
         return this.dao.find(id);
     }
 
