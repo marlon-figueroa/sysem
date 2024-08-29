@@ -20,7 +20,7 @@
         <httpclient5.version>5.2</httpclient5.version>
         <httpclient5-fluent.version>5.2</httpclient5-fluent.version>
         <poi.version>5.0.0</poi.version>
-        <mysql.version>8.0.33</mysql.version>
+        <mysql.version>8.2.0</mysql.version>
         <packaging.type>war</packaging.type>
     </properties>
 
